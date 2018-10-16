@@ -1,0 +1,78 @@
+
+\documentclass[10pt,letter paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[cm]{fullpage}
+\usepackage[letterpaper, margin=0.75in]{geometry}
+\usepackage[singespacing]{setspace}
+\usepackage[T1]{fontenc}
+\usepackage[]{graphicx}
+\usepackage[]{listings}
+\usepackage{rotating}
+\usepackage{amsmath}
+\usepackage{circuitikz}
+\usepackage{titlesec}
+\usepackage{latexsym}
+\usepackage{enumerate}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\vspace{8cm}
+	{\scshape\Student Letter of Recommendation Management site\par}
+	\vspace{2cm}
+	{\scshape\itshape This article talk about the background to motivate the project, and the problem need to solve for accomplish it. And provide some possible solution.
+\par}
+	\vspace{1.5cm}
+	{\scshape\Large CS461-001-F2018\par}
+	\vspace{1.5cm}
+	{\Large\itshape Mingwei Gao\par}
+	\vspace{1.5cm}
+
+
+	{\large \today\par}
+\end{titlepage}
+\section*{Project Abstract }
+	\bigskip
+	This project involves helping student and instructor manage the application of recommendation letter during the period of information exchange in both sides. The goal is establishing a platform to allow student upload documents and letters of recommendation from instructors. The student can browse the information of instructors about their working status and make a reasonable selection if they need to get the letter in time. Also, the instructor can check these files from the student who set required for them in another individual location on the Web. Also, Checking the material from the student can be implemented easily by name list filter. Meanwhile, the platform monitors the status of files missing or incorrect form and student update status automatically. \newline \par
+
+\section*{Definition and Description of Problem}
+    \bigskip
+    Consider the student need the letter of recommendation for their future studies and career planning development, and most of the student especially Junior student, they may be confused about who should applicants approach to write their letters of recommendation. This kind of status also happened on our school site. For example, normally the student asks the adviser what they do first and which document should they prepared before they visit the professor who they are looking for. This process sounds really easy, but the fundamental determinants of receiving the letter are the professor. So, if the professor has a different file requirement that student may miss, the whole application process need restart.  From a different perspective that happened in professor side, if the student provides incorrect file format or not the one professor looking for, letter application time will be extended the deadline student required. Even professor can’t finish it in time, the quality of the letter of recommendation can be affected.\newline \par
+
+    How to shorten this process is necessary for the management of the institutional resource. The new application process will improve efficiency for professor working time and shortening waiting time for the student who has emergent needs to be solved in time. So, the entire website needs to be designed in a minimalist way but provides maximum help for our campus site service improvement. Meanwhile, improve the site feature for better application services for both sides during the operating and management of the site also important for our projector. So, the problem that tracks the site performance test, feedback from student and professor have to be cleared as well.\newline \par
+
+
+\section*{Proposed Solution }
+    \bigskip
+    The reason why the school needs establishing this site is perfecting the campus service component. Also, our school service committed to helping every student get a better academic experience. This site not just helps the school improve working quality, and also help the student save their visit time.  Every action connected by this site.\newline \par
+
+    Before building this site, our team needs to design several basic web-interface of the entire site for the user survey. Through the analysis of investigation data, pick one most of user voted. As the most important part before the team do any work, we must find the best solution for the design process. For example, how to perfect architectural design pattern for this site as the first step. Then, the query optimization process considered for simple website interactivity. Meanwhile, the indexing optimization can help the user see and pull the proper element from our site. Also, memory optimization of the program as the key terms should on the priority list for the reducing data redundancy.\newline \par
+
+   After that, the team will use the school service to create, start, and configure a database to collect the professor and student information. By quick test our database whether can be implemented, we can figure out how to connects to the campus server. The critical index database test performance is based on four parts. Response time, throughput, baseline, and bottleneck. For response time, sometimes we need to take more factors into careful consideration like user network and browser. We can use the system track to find the content of the response and analysis the feedback time.\newline \par
+
+   For throughput, by checking the SQL Batch request per second and transaction per second in the performance monitor, help team tracking the usage situation of the system.\newline \par
+
+   The baseline can reflect the index of normal operation every day if we can figure out the baseline value in the system.\newline \par
+
+   The system bottlenecks also need to be monitored if we consider the system capability. For example, insufficient memory results in the higher IO, and higher IO may cause CPU waiting.\newline \par 
+
+   These questions are the part of the projector will be met when we design our database.\newline \par
+
+
+\section*{Performance Metrics }
+    \bigskip
+    After the team completes the project, the student can submit the relevant documents that the school required for the recommended letter through our site. Also, the site can help the student check the file format. If the file format does not follow the school requirement, the site will remind the student to submit the correct format and block the process of submission. The system also helps student checking whether they select the right class instructor by letting them pick the course name and the specific term taking this class. Meanwhile, the student can check the current letter working status and information of the instructor they are looking for to pick a better candidate.\newline \par
+
+    For the instructor, after they receive the requirement from the student, they can check the documents through our site in the personal account. This single place only instructor allow access. Meanwhile, they can get student information like email or class grade and update their work schedule for the student.\newline \par
+
+    The user needs logging in our site with the correct user-name and password. Otherwise, the user is not allowed access to the site page. If any information or file updated on site, the system will remind the user check site in time through ONID email.\newline \par
+
+    There also has some performance test report to our customer. For example, the response time of our site. The best response time limited from 2 seconds to 8 seconds. We can achieve this goal by optimizing the site throughput and resource utilization.\newline \par
+ 
+
+\end{document}
