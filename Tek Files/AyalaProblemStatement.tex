@@ -1,0 +1,71 @@
+\documentclass[onecolumn, draftclsnofoot,10pt, compsoc]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{setspace}
+
+\renewcommand{\familydefault}{\rmdefault}
+\renewcommand{\thesection}{\Roman{section}} 
+\usepackage{geometry}
+\geometry{textheight=9.5in, textwidth=7in}
+
+\def \DocType{		Problem Statement
+				%Requirements Document
+				%Technology Review
+				%Design Document
+				%Progress Report
+				}
+			
+\newcommand{\NameSigPair}[1]{\par
+\makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
+\par\vspace{-12pt} \textit{\tiny\noindent
+\makebox[2.75in]{} \hfil		\makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill	\makebox[.75in][r]{Date}}}}
+
+\begin{document}
+\begin{titlepage}
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+    \center 
+    \HRule \\[0.4cm]
+    { \Large \bfseries Student Letter of Recommendation Management Site}\\[0.4cm] 
+    \HRule \\[0.5cm]
+    \center 
+    \textsc{\Large CS 461}\\[0.5cm] 
+    \textsc{\Large Oregon State University, Fall 2018}\\[0.5cm] 
+    \begin{minipage}{0.4\textwidth}
+        \begin{center} \large
+        \emph{Author:} Lorenzo Ayala
+        \end{center}
+    \end{minipage}
+    \vspace{2cm}
+    \begin{abstract}
+    Oregon State University has a wide variety of professors who are asked to write letters of recommendation for numerous students. With the recent rise in the population of the student body many of these professors have been struggling to maintain, follow up with the requests from their students. Our solution to this problem is to develop a site which will allow for the management of requests and documents necessary for the professors to proceed with writing the letters. The site will be established with student and instructor accounts so that Oregon State University credentials can be utilized and will provide a load detector so that students can pick an open professor to write their letter of recommendation. On the flip side professors will be able to request materials from students so they can write an effective document. With these objectives established we can create a smooth request and writing process. 
+    \end{abstract}
+    \vfill % Fill the rest of the page with whitespace
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+
+\center
+\section{Description}
+\flushleft
+The management site we are developing will be aiming towards minimizing the hassle professors face today with the numerous requests they receive to write letters of recommendation for students. Today’s current style of transaction for letters of recommendation are done via in-person conversation or through the email system at Oregon State University. While this style works it can become difficult to track separate requests from students as the list of requests grows for Professors. The previously stated scenario can then lead to expanding issues which can consist of forgetting who has requested a letter, what the letter is supposed to be formatted for, the necessary materials to develop a letter, and so on. The issues have continued to grow as the student body has been continuously growing leading to a large growth of requests as stated earlier. With our site we will be able to create a structured approach for professors and students, to handle both letter of recommendation requests as well as gather the necessary information from students to create a smooth process for both users.  
+
+\center
+\section{Proposed Solution}
+\flushleft
+
+The proposed solution for our problem is to develop a working website which will be a central hub for managing letter of recommendation requests a long with information management regarding technical documents. As vague as the solution statement is there are several steps that will need to be taken to create a site that will meet the groups and client’s vision. The steps are as followed.\vspace{4mm}
+
+First, we need to design a user interface for both professors and students that will be a friendly, easy-to-learn experience. Any site that utilizes an effective, yet simple design will be immensely useful for user to complete their current objectives (in this situation letter of recommendations). Establishing the interface will be straightforward if we follow a scheme like Oregon State Universities site directory. For that scheme we must create a navbar with tabs relating to interactive/necessary guidance for the user with a home page that provides graphical (with text too) options for what actions the user wants to make. Employing such a simple interface should provide the type of experience we want our end users to have with our site so that upon return they will not have to re-learn the sites mechanics.\vspace{4mm}
+
+Second, after implementing an effective interface we must then add the functionality using PHP which will allow us to satisfy this objective. In terms of functionality our goals are quite simple, we will need to create a secure log in for our users using LDAP or SAML which will use the databases containing Oregon State emails and passwords to check authentication. After authentication is handled we will then need to allow students to submit requests to professors to write letters of recommendation through a simple button and pop-up which will let the students select their desired professor. Within the selection menu we will also include a load indicator which will display the number of requests the professor has received and how many letters they are currently working on. On the other side professors will be able to check the requests they have received and whose students letters they are currently working on. Professors will also be able to make requests to students concerning documents that would be helpful in writing a letter of recommendation (resumes, articles, projects, etc.). When receiving a document request the students will have a separate hub that will allow them to submit the requested documents which they can then share with the requesting professor. The hub will hold onto those documents for future reference and will need to be updated by the student. Professors will also have their own document hub where they can manage, update, and submit the letters to the students whose requests they have accepted. With these functionalities in place we will have a simple and effective website as planned.\vspace{4mm}
+ 
+Finally, our group will implement a MySQL database so that we can use a relational database to track specific documents to students and professors. In order to achieve this we will integrate UUID’s (universally unique identifiers) with our accounts for security and functionality purposes. UUID’s will allow us to generate identifiers for each of our accounts allowing use to bind their documents to the accounts in a secure manner (hackers would not be able to iterate through objects). \vspace{4mm}
+
+With these steps implemented we will be able to deploy a functioning website that will create a smooth process for letters of recommendation among Oregon State University. 
+
+\center
+\section{Project Metrics}
+\flushleft
+Measuring the performance metrics of our project is very straightforward. During development we will need to establish various interviews with students and professors to solidify the sites design a long with take feedback provided by our interviewees. Upon updates and design approval we will then need to progress to various levels of prototyping functionality which we need to test when viable. We can complete these tests by having students and professors volunteer to check the usability of our website. For checking usability, we will also need to make sure the volunteers attempt both expected and unexpected user behavior to validate the overall quality of our dynamic, server-side code. The feedback and results from these tests will be vital in creating a properly functioning site. Overall most of our metrics will be measure by the users of our application since this application is centered on interaction between clients and as our project client stated to adapt/develop to our user needs. The last piece will be the deployment of our application on the Oregon State University servers which after all previous tests should already be secured. When all these metrics and user defined requirements met we will have an application that will ease the process of writing/acquiring letters of recommendation. 
+
+\end{document}
