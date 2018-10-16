@@ -1,0 +1,86 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\usepackage{alltt}
+\usepackage{float}
+\usepackage{color}
+\usepackage{url}
+
+\usepackage{balance}
+\usepackage[TABBOTCAP, tight]{subfig}
+\usepackage{enumitem}
+
+\usepackage[margin=0.75in]{geometry}
+%\geometry{textheight=8.5in, textwidth=6in}
+
+\newcommand{\cred}[1]{{\color{red}#1}}
+\newcommand{\cblue}[1]{{\color{blue}#1}}
+
+\newcommand{\toc}{\tableofcontents}
+
+%\usepackage{hyperref}
+
+\def\name{D. Kevin McGrath}
+
+%pull in the necessary preamble matter for pygments output
+%\input{pygments.tex}
+
+% The following metadata will show up in the PDF properties
+ %\hypersetup{
+  % colorlinks = false,
+   %urlcolor = black,
+   %pdfauthor = {\waddings},
+   %pdfkeywords = {cs461 ``senior capstone''},
+   %pdftitle = {CS 461 Problem Statement},
+   %pdfsubject = {CS 3461 Problem Statement},
+   %pdfpagemode = UseNone
+ %}
+
+\parindent = 0.0 in
+\parskip = 0.1 in
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    {\scshape\LARGE Oregon State University \par}
+    \vspace{1cm}
+    {\scshape\Large CS 461: Senior Capstone\par}
+    \vspace{1.5cm}
+    {\huge\bfseries Problem Statement: Group 8\par}
+    \vspace{2cm}
+    {\Large Scott Waddington\par}
+    \vfill
+
+    \begin{abstract}
+        Many applications require students to submit letters of recommendation during the application process. The current process of obtaining letters of recommendation from instructors is tedious, time-consuming, and can be confusing to students and instructors alike. This project seeks to create a website where students can request letters from instructors, and instructors can view and manage open requests. Students can also upload relevant material which professors may require before writing a letter. Instructors can list information and materials that they will need, making it easier for the student to know what to provide ahead of time. This will help minimize the complexity and expedite the process of obtaining and writing letters of recommendation.
+    \end{abstract}
+
+    \vfill
+
+    {\large Fall 2018\par}
+\end{titlepage}
+
+\clearpage
+\tableofcontents
+\newpage
+
+\section{Definition}
+Letters of recommendation are a huge part of applications today, whether for careers or for getting into graduate education. Currently, the process of obtaining letters of recommendation is very time consuming, and it can be hard for instructors to keep track of the letters which they have promised to students. Professors can have hundreds of students split between several classes. This, coupled with the fact that many students ask professors from classes they took several terms prior, make the process confusing and time-consuming for both student and instructor. Due to the stated issues with this process, many students may have to wait longer to apply for graduate school, or steer away from higher education entirely. Likewise, it is repetitive and inefficient for professors to have to tell multiple students the same requirements for letters of recommendation over and over again. In addition, it is also difficult for professors to know at a glance whether a student is a good candidate for a letter and whether it is worth their time if they don't already know the student very well. Given these issues, there is a lot of room for optimization for this process, which is what this project seeks to do.
+
+\section{Proposed Solution}
+Our proposed solution is a website which centralizes this process between instructors and students. This application would run on the Oregon State Engineering servers. On this application, students and instructors would have separate accounts. On a student account, the user can upload relevant documents and materials which can help the instructor write their letter. Student accounts can also request letters form instructors. The site would also indicate to students a given instructor's "load" based on how many requests they have gotten. Instructors with a higher load would have the most requests, while instructors with a low load have less requests. This helps students decide whether the instructor is a good candidate to open a request with, given the number of requests they have already gotten and the time frame the student is working with. The instructor accounts will also have some exclusive functionality. Instructors can have a central place where they state the material that they require before they agree to write a letter. Currently, students would have to approach the professor and the professor would tell them what materials or classwork they need and the student would have to spend time acquiring it. With this website, the student would know ahead of time what the instructor is asking for, which saves time for both parties. Instructors can easily view the open requests they have, and can choose to accept or decline a request by a student. They can also see which students they have accepted, which helps them keep track of the students which they agreed to write a letter for.
+
+The project will be complete when a working final version is made which can run on the Oregon State University Engineering Servers. We will have created a web application which actually helps reduce the time and complexity of obtaining letters as a student, rather than further complicating it. The website must be easy to use and relatively simple. The exchange of information between students and instructors must be confidential. One crucial part of both the design and testing aspects of this project is interviewing potential users, both student and professor. By engaging with potential users, we can get a basic knowledge of the features that they would like to see implemented. It is important to then take from a list of desired features and choose the ones which are most requested and which we believe would benefit the website the most. Once a working draft is made, then we go back to the users and see how they like it. Finally, after possibly some revisions to the project, it will deploy live to the Oregon State University Engineering Servers. This must be a fully functional site which fulfills the requirements previously stated. With sufficient testing and keeping the website as simple as it needs to be, he site will have as few bugs as possible, which is to expected form a final version.
+
+
+\nocite{*}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+
+\end{document}
