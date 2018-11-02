@@ -1,0 +1,85 @@
+\documentclass[letterpaper, 10pt, draftclsnofoot,onecolumn]{IEEEtran}
+
+
+\usepackage[margin=0.75in]{geometry}
+\geometry{textheight=8.5in, textwidth=6in}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{alltt}
+\usepackage{float}
+\usepackage{color}
+\usepackage{url}
+\usepackage{listings}
+
+\usepackage{balance}
+\usepackage[TABBOTCAP, tight]{subfig}
+\usepackage{enumitem}
+
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[hidelinks]{hyperref}
+
+
+\parindent = 0.0 in
+\parskip = 0.1 in
+
+\begin{document}
+
+\begin{titlepage}
+     \centering
+     {\scshape\LARGE Oregon State University \par}
+     \vspace{1cm}
+     {\scshape\Large CS 461: Tech Review\par}
+     \vspace{1.5cm}
+     {\huge\bfseries Team 8: Student Letter of Recommendation Management Site\par}
+     \vspace{2cm}
+     {\Large Scott Waddington\par}
+     \vfill
+
+    \begin{abstract}
+        This document serves to illustrate a portion of the specific technologies that we plan to use in order to implement our project.
+    \end{abstract}
+
+    \vfill
+
+    {\large Fall 2018\par}
+\end{titlepage}
+
+\clearpage
+\newpage
+
+\section{Introduction}
+Our group plans to implement a site on the OSU Engineering Servers which allows students to request letters of recommendation from professors, and professors to accept, write, and submit back to the students the letter which was requested. This would drastically decrease the amount of time, effort, and possible confusion and conflict present in the current system. There are several pieces involved with implementing such a project. This document will cover the user interface, user authentication, and the database management system.
+
+\section{User Interface Toolkit}
+There are several web development UI toolkits available to use for this application. One possible toolkit is the Ajenti Core toolkit. This is an open-source toolkit with a clean and modern-looking customizable UI and framework. Its front-end is AJAX-based and uses Javascript and its framework is AngularJS \cite{ajenti}. For reference, Ajenti's interface is based on Google's AngularJS and Twitter's bootstrap libraries \cite{ajenti}. Ajenti would be a good choice to consider for this project mainly due to its modular format, which makes it easy to plug in and implement specific packages for security or database management. It also runs on Linux, which is convenient because that is what the OSU Engineering servers use.
+
+Another available UI toolkit is Bootstrap, which is a very popular HTML, CSS, and Javascript library. Bootstrap is concerned only with front-end web development, and is most famously implemented by Twitter \cite {Bootstrap}. Currently, it is the second-most-starred project on Github. Bootstrap can create professional and modern-looking and responsive web interfaces which are compatible with Chrome, Firefox, Internet Explorer, Opera, and Safari. Bootstrap webpages are cross-platform compatible and can be dynamic, adjusting based on the characteristics of the viewing device. Bootstrap is marketed as simple and easy to use, with several templates available and even some Javascript extensions available to extend and customize the functionality of the UI and front-end to fit the project \cite{Bootstrap}. In addition to the aforementioned, the popularity of Bootstrap is a huge advantage in development, because it is so well-documented, and so many people have used it that if and when we run into a development issue, it is very likely that another developer has also faced the same issue before, overcame it, and documented it.
+
+Finally, jQueryUI is another good option for web interface. It is free and open-source, which is desirable for smaller development teams like this one. According to their website, jQueryUI is a "a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library" \cite{jqui}. jQueryUI is a very popular collection of web GUI widgets with HTML, Javascript, and CSS. Some of the widgets available in this package include Accordian, Button, Dialog, Progressbar, and several more. It also has several effects which are pre-made and can be used by simply calling the pre-made function. For example, jQueryUI has some color animation, toggle, and drag-and-drop features built-in and available upon download \cite{jqui}. Having some of these style functions and abilities already made is a big time-saver for this project, because it means that we can focus on the functionality of the website and spend less time perfecting how buttons look.
+
+\section {User Authentication}
+Security is very important in today's world, especially when dealing with students' sensitive documents and personal information, so this project requires some form of security and user authentication. One such option is to use the Lightweight Directory Access Protocol, or LDAP for short. This protocol uses an LDAP database which stores directory information trees. In order for a user to access the information, they must authenticate their identity with a login procedure \cite {LDAP}. LDAP uses the client-server model where the client requests information from the server and the server can store "core user identities" \cite{LDAP}. These identities include not only passwords and usernames, but also additional information such as email address, physical address, phone number, and a variety of others, however for our implementation, only email and password will likely be necessary. LDAP uses a person's provided password and email, checks it with the database of core user identities, and grants access to database information only if the credentials match. LDAP has been very successful since its launch in 1993, and has been implemented in many web services since \cite {LDAP}.
+
+Another possible security option is the Security Assertion Markup Language, or SAML. SAML uses the Single Sign-On (SSO) login standard, which has some benefits over logging in with a username and password. With SSO, there is no need to type in credentials or remember credentials, and it eliminates the possibility of users creating weak passwords \cite{SAML}.It achieves this because the database will already know and be able to identify the people who are logged into their active directory domain, and the database can use this information to log the user into other applications, which in this case is the letter of recommendation site \cite{SAML}. OneLogin has a SAML toolkit which is easy to implement, and is compatible with PHP, Java, Python, and Ruby. SAML transfers the identity of the user to the server using signed XML documents. Overall, SAML would be another good security tool to look into for this project.
+
+A third possible option for website security is the Network Security Toolkit (NST). This is a free, open-source security toolkit that provides a package of security tools from which the administrator can pick from to implement on his/her site. One nice thing about NST is that it seems to be updated fairly regularly, as despite its rather archaic-looking website, the package was last updated August of this year. NST can be installed via a bootable CD or flash drive and includes many of the security tools listed on insecure.org's "Top 125 Security Tools" article \cite{NST}. It also comes with an advanced web user interface, and can be used for "system administration, navigation, automation, network monitoring, host geolocation, network analysis and configuration of many network and security applications found within the NST distribution" \cite{NST}. In addition, it can also be used as a security validation and monitoring tool. Overall, I prefer the previous two options mentioned, but NST provides a free, open source, and customizable security toolkit.
+
+\section{Database Management}
+Creating a site where hundreds of students would be making requests for letters of recommendation is going to require serious database management materials. One popular package for database management is MySQL. MySQL is a free, open source database management system. It is used to handle databases in several popular websites such as Facebook, Google, Youtube, Twitter, and Flickr. Consdering that large websites and organizations put their trust in MySQL, it is a great choice for this project. Some major features of MySQL include support for ANSI SQL 99, cross-platform support, online data definition language, SSL support, query caching, full-text indexing, and an embedded database library \cite{MySQL}. Updates are released regularly to MySQL's Github repository roughly every two months. MySQL's installation is rumored to be quite easy, and the Linux distribution used on the Engineering servers would be able to easily install the it, and it can also be customized and refined for the specific project, which is ideal. Overall, MySQL is a good option for database management in this project, and its popularity also makes it easier to debug and overcome issues, as the more people that use a software, the more likely other people have been faced with the same development struggles and have shared how they overcame them.
+
+Another database management option is the PostgreSQL package. This is another very popular database system which is free and open-source. PostgreSQL can run on all major operating systems, including Linux, and is ACID (Atomicity, Consistency, Isolation, Durability) compliant \cite {PostgreSQL}. PostgreSQL's high extensibility allows users the option to create custom data types, functions, and write code in other programming languages without having to recompile the database \cite{PostgreSQL}. It's most recent version, updated 18 October 2018, conforms to 160 of the 179 mandatory features for the SQL:2011 Core Conformance standard. Some key features of PostgreSQL include support for many primitive and structured data types, data integrity and security measures, concurrency and parallelization, and many other features also seen in MySQL \cite{PostgreSQL}. PostgreSQL is typically viewed as MySQL's biggest competitor in database systems, and it would be a great option to go with if we decided against MySQL.
+
+Finally, MongoDB is yet another resource which can be implemented for database management for this project. MongoDB is another free, open-source and cross-platform database management system which is compatible with major operating systems. Personally, I have used MongoDB in the past for a web development class, and so I can safely say it is compatible with Linux and is relatively easy to use for programmers who aren't necessarily experienced web developers. Some of the main features of MongoDB include Ad Hoc querying, indexing, replication, aggregation, and several other features previously mentioned with MySQL and PostgreSQL \cite{MongoDB}. Overall, any of the named database systems would likely work for our purposes of this project, but our client has mentioned the implementation of MySQL, so that is probably what we will decide to use for our site.
+
+\section{Conclusion}
+In general, by compiling a list of some of the technologies we might need to use for this project, we can plan the project much better in the future. Luckily, in today's world which is highly centered around technology, there are plenty of options available. The technologies presented in this document are ones which I believe will best suit our project and development needs.
+
+
+\newpage
+\bibliographystyle{IEEEtran}
+\bibliography{references.bib}
+
+
+\end{document}
