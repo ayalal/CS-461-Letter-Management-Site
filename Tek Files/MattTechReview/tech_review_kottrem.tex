@@ -1,0 +1,86 @@
+\documentclass[10pt,draftclsnofoot,onecolumn,journal,compsoc]{IEEEtran}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+
+
+\renewcommand{\linespread}{1.0}
+
+
+\title{Tech Review}
+\author{
+  \IEEEauthorblockN{Matthew Kottre} \\
+  \IEEEauthorblockA{Group 13: Student Letter of Recommendation}
+}
+
+
+\begin{document}
+\maketitle
+While there are many pieces of a website, this document will focus on three of them. For each of the three topics, three products will be analyzed that provide the necessary functionality.
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Introduction}
+It takes many pieces for a website or web application to work. This document will provide an overview of some of the most popular web technologies currently being used. Three parts will be covered in this document as well as three different options for each part.
+
+\section{Databases}
+Databases are an important part of a website or web application. As the name suggests, they are where data is stored. More specifically, they are where data is stored that needs to be retained between sessions and/or users. There are many different database servers that are often separated into two categories: Relational (SQL) and NoSQL. SQL databases are best thought of like spreadsheets. They are tables of structured data. NoSQL can be thought of like classes in objective programming. They can contain different kinds of data, often unstructured. Three of the most popular database servers that will be examined are: MySQL/MariaDB (SQL), PostgreSQL (SQL), and MongoDB (NoSQL).
+
+\subsection{MySQL/MariaDB}
+MySQL is by far the most used database server, as well as the most documented. Due to licensing disputes, MySQL was forked into MariaDB. MariaDB is becoming increasingly popular, and due to being nearly identical to MySQL, is often referred to as MySQL. MySQL is, in most cases, the best web server to use for websites. MariaDB's website describes it as a "drop in replacement of the same MySQL version" \cite{mariadb}.
+
+\subsection{PostgreSQL}
+PostgreSQL is one of the most fully featured database servers and strives to be fully compliant with the SQL standard. Because of its advanced features, PostgreSQL does not typically work as well as MySQL for simple websites. It is not only more difficult to set up, but can also provide worse performance than MySQL for read heavy operations. It is intended for more advanced applications that have a lot of read/write operations and requires advanced configuration and control. It is not the best choice of database server for this project.
+
+\subsection{MongoDB}
+MongoDB is the most popular NoSQL server. It is rapidly growing in popularity to the point that the company responsible for developing it, also called MongoDB, has recently become a publicly traded company.
+
+\section{Web Servers}
+While databases are important, they are not the most important part of a website. That undoubtedly goes to the web server. It is what hosts the website and allows users to access the content. While there are different web servers, they all do relatively the same thing.
+
+\subsection{Apache}
+The most used web server on the internet is Apache, developed by the Apache Foundation \cite{webserverstats}. Since this project will be hosted on Oregon State University servers, it will be using the web server they use which is Apache. Given its widespread use and documentation, Apache would be a good choice whether it is required or not.
+
+\subsection{NGINX}
+NGINX has been growing in popularity in recent years and is second in popularity only to Apache \cite{webserverstats}. Its advantage over Apache is that it is lightweight and efficient. Like MongoDB, NGINX has also become a successful company by providing support for the NGINX web server and reverse proxy.
+
+\subsection{Internet Information Services}
+Internet Information Services (IIS) is developed by Microsoft and often used as the web server on Windows Server. It doesn't have many features or offer the best performance, but is often used because it is easy to setup and the default web server on the Windows Server operating systems.
+
+\section{Web Browsers}
+Unlike the previously mentioned parts, the web browser is not used to host the website, but is instead used by the user to access the website. It is therefore, almost as important as the web server itself because what good is a website if no one can access it. Since the user will use a web browser to access the website, it is important for the developers to also use a web browser when developing and testing the website. It is also important for the developer to test using multiple web browsers because while web standards try to avoid incompatibilities, different web browsers have different levels of implementations. The three web browsers that will be discussed are the most popular across desktop and mobile. Unlike the other pieces, it is not necessary to choose a single web browser. It is actually best to test the website with as many as possible.
+
+\subsection{Mozilla Firefox}
+Firefox is an open source web browser that was once the largest threat to the dominance of Internet Explorer. After the rapid rise of Chrome, Firefox lost much of its momentum, but it never left the browser seen. In fact, it has recently been gaining popularity after significant performance improvements and some unpopular decisions made by Google in Chrome. Firefox has great development tools. Firefox uses the Gecko rendering engine.
+
+\subsection{Google Chrome}
+Google Chrome is the most used web browser because it is heavily pushed by one of the largest internet companies in the world: Google. It also serves as the default web browser on most Android devices. While having a reputation for being resource heavy, Chrome offers good overall performance. It also has great developer tools. Chrome uses the Blink rendering engine, which is based on Apple's WebKit rendering engine, which is itself a fork of KHTML \cite{khtmlwebkit}.
+
+\subsection{Apple Safari}
+Safari is the default web browser on macOS and iOS. In fact, those are the only platforms that it currently runs on. There was a period of time that it was developed for Windows as well, but that is no longer the case. As previously mentioned, Safari uses the WebKit rendering engine. While technically iOS allows for other browsers, they are required to use Safari's WebKit rendering engine \cite{iosrendering}. This means that every website visited on iOS uses WebKit, making it an essential browser to develop and test on.
+
+\section{Conclusion}
+It takes many pieces to build a website, and there are many options for each of those pieces. It is the responsibility of the developer(s) to choose the best option for the project. Based on the information gathered for this review, the best technologies to implement the letter of recommendation project are MySQL for the database, Apache for the web server, and all three web browsers for the purpose of compatibility testing.
+
+\newpage
+
+\begin{thebibliography}{9}
+\bibitem{mariadb}
+MariaDB versus MySQL - Compatibility\\
+https://mariadb.com/kb/en/library/mariadb-vs-mysql-compatibility/
+\bibitem{webserverstats}
+Usage of web servers for websites\\
+https://w3techs.com/technologies/overview/web\_server/all
+\bibitem{khtmlwebkit}
+Unrau: The unforking of KDE’s KHTML and Webkit\\
+https://arstechnica.com/information-technology/2007/07/the-unforking-of-kdes-khtml-and-webkit/
+\bibitem{iosrendering}
+Mathews: No Firefox app heading to iOS any time soon, says Mozilla\\
+https://www.geek.com/mobile/no-firefox-app-heading-to-ios-any-time-soon-says-mozilla-1542425/
+\end{thebibliography}
+
+\end{document}
