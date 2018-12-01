@@ -1,0 +1,110 @@
+\documentclass[letterpaper, 10pt, draftclsnofoot,onecolumn]{IEEEtran}
+
+
+\usepackage[margin=0.75in]{geometry}
+\geometry{textheight=8.5in, textwidth=6in}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{alltt}
+\usepackage{float}
+\usepackage{color}
+\usepackage{url}
+\usepackage{listings}
+
+\usepackage{balance}
+\usepackage[TABBOTCAP, tight]{subfig}
+\usepackage{enumitem}
+
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{setspace}
+
+\usepackage{geometry}
+\geometry{textheight=9.5in, textwidth=7in}
+
+\def \DocType{		%Problem Statement
+				%Requirements Document
+				Technology Review
+				%Design Document
+				%Progress Report
+				}
+			
+\newcommand{\NameSigPair}[1]{\par
+\makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
+\par\vspace{-12pt} \textit{\tiny\noindent
+\makebox[2.75in]{} \hfil		\makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill	\makebox[.75in][r]{Date}}}}
+
+\begin{document}
+\begin{titlepage}
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+    \center 
+    \HRule \\[0.4cm]
+    { \Large \bfseries Student Letter of Recommendation Management Site}\\[0.4cm] 
+    \HRule \\[0.5cm]
+    \center 
+    \textsc{\Large CS 461, Tech Review Draft 1}\\[0.5cm] 
+    \textsc{\Large Group 8, The LetterMen}\\[0.5cm] 
+    \textsc{\Large Oregon State University, Fall 2018}\\[0.5cm] 
+    \begin{minipage}{0.4\textwidth}
+        \begin{center} \large
+        \emph{Authors:} Lorenzo Ayala
+        \end{center}
+    \end{minipage}
+    \vspace{2cm}
+    \begin{abstract}
+    Oregon State University is facing a hassle between students and professors when it comes to letter of recommendations. Currently the process can be difficult for both parties as the growing student population has seen a massive increase. Due to the increasing student body professors have become loaded with requests which in return can make communication difficult for students for follow up and providing the necessary documents. As we develop a management site to solve this situation we are choosing technologies that could aid us in our pursuit of solving this issue at Oregon State University. In this review we will discuss three major pieces to web applications from the programming language used, complementary frameworks for development, and container systems for deployment. 
+    \end{abstract}
+    \vfill % Fill the rest of the page with whitespace
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+\clearpage
+
+\section{Introduction}
+Our teams project of creating a management site for letters of recommendation could be a great benefit to Oregon State University. The application will allow us to help create a smooth process to one that has become a burden on professors and students. However when creating such a web application there are some pieces that come together that need to be discussed. Following we will discuss various technologies such as programming languages, frameworks, and 
+
+\section{Programming Languages}
+One of the most essential choices in developing a web application is to choose a programming language by which to develop your application with. Programming languages in the modern day are very powerful so the decision can come down to language syntax/learnability, open/close source, strength of community, etc. In this section I would like to discuss some of the languages we considered for our web application. 
+The first programming language I would like to discuss is the open source Python programming language. I was able to use this language personally during an internship and came close to what it can provide for this application and developers. From a perspective of the developer, Python is a very friendly language in terms of learnability and syntax. Syntactically Python reads very closely to English and is straightforward in its approach to web applications. Furthermore, Python is a very well documented language thanks to a very strong community that constantly updates and advances the language towards greater improvement. Through its development in the community Python has become greatly portable as well as versatile which could be strong factors in our decision. Another key aspect to Python is its ability to modularize functionality of our web application. Modularization would be a huge win-win in the team’s case as it will allow for quick maintenance and error checks when testing functionality and upon completion of the project this ease of maintenance can be transferred to whoever is watching over the application at OSU due to modularization and the fact that Python syntax is simple to read.  Python is a language that is tried and trusted making it a very strong option for our team. 
+
+Our second language we were considering is the PHP scripting language. One of the benefits of going with PHP is learning the language is quite simple since PHP is quite similar to C and Java[1]. This aspect of PHP is key since team members don’t know this language and since C is taught at Oregon State University, we already have an advantage toward learning it. Continuing PHP is also open source, another great benefit as PHP has developed a strong community similar to Python and because of its large support it is constantly updated and improved upon. Through these improvements PHP has become a scripting language that uses very little resources which can be essential to our deployment on the Oregon State University engineering servers. On top of limiting resource use PHP also implements a layer of protection which can be built on to protect our web application which will be important since we will be using Oregon State University accounts as well as store personal files[1]. Overall PHP is as strong as a candidate as Python making our decision a little tougher but can be based on which syntax we are most comfortable with and maintenance issues as well. 
+
+The final language we could utilize is the dynamic, object-oriented programming language Ruby. One of the key aspects of choosing Ruby is its framework Ruby on Rails(to be discussed further) on of the most popular frameworks for  web development. Ruby has a number of aspects similar to the two previous languages such as being flexible, readability, open-source, strong community, and so on. However, due to its dynamic aspect Ruby can be hard to maintain since tracking bugs is difficult in dynamic languages plus as an application grows in complexity Ruby can grow resource hungry[2]. Overall Ruby is a good candidate for a programming language despite the two potential drawbacks. 
+
+\section{Frameworks}
+Programming language frameworks are some of the strongest tools we can utilize when developing a web application for OSU. Frameworks provide a great set of tools for handling various application situations and quick solutions to required functionality of our project. In this section I would like to discuss frameworks which would complement the previously discussed languages Python, PHP, and Ruby. 
+Python, having the strong community it does, has one of the most popular frameworks at hand to begin web development. That framework is the open-source Django framework which provides various libraries which will be very helpful in implementing the desired functionality to our management site. Setting up an application with Django is a very smooth process as it can generate a basis for us to build upon for our site. Django also utilizes the MVC (model-view-controller) architecture which is the architecture we will be implementing into our application. Django also integrates well with other databases which will be key in setting up our own as well as connecting to the Oregon State University servers to run user credentials for authentication. Building off the previous sentence Django also has both LDAP and SAML modules to implement a secure login for our users. Continuing with security Django contains a variety of modules which will force the implementation of secure protocols such as HTTPS, SSH, and FTPS when handling user information/input which will be essential for us in creating secure application for OSU. Django can also handle a very strong load from an application which may come in handy considering the number of students and professors that could potentially use our web application. From personal use of this framework I believe it will be the go-to framework if Python is chosen as our language for the project. 
+
+Currently on of the most popular frameworks for PHP is the Laravel framework which was recently released. Laravel is an open-source framework and has recently grown in popularity for various reasons. Laravel implements the popular MVC architecture for web applications and direct migration with databases either via modules or self-written php code to handle information. Another benefit of Laravel is its secure nature[5]. Laravel’s ORM uses PDO which prevents SQL injections to a site as well as protection from cross site request forgery along with other components to improve upon security. One of the unique benefits of Laravel is its implementation of facilitating unit testing which could come to great benefit of our project team during development and prototyping[5].  To cap it off Laravel is well documented and even has supporting videos known as Laracasts to help programmers become familiar with the framework[5]. 
+
+The final framework is Ruby on Rails (Rails) the most popular framework for the dynamic language Ruby. For a base Rails has a large supportive community that constantly updates and improves the efficiency of the framework. Like the previous frameworks Rails supports the MVC architecture which will be importance since is the architecture we will most likely utilize. Rails is also scalable, reliable, and maintainable due to its test-driven approach and capability to handle high loads with quick responses[4]. Some of Rails key features consist of automated testing support, database integration and security from SQL injections as well as cross site scripting. Overall Rails is the go-to Ruby framework for web development however one aspect we need to keep in mind is that as complexity grows Ruby and Rails grow very resource hungry[4]. 
+
+\section{Container System/Technologies}
+The last aspect I would like to discuss is containerization technologies that could possibly be used to containerize and deploy our application on the Oregon State University servers. Containerization will allow us to run our application with others on the servers while using the same OS kernel and physical system. In benefit to the physical system containerization will also increase efficiency for system memory, CPU and storage compared to traditional application hosting. 
+The most popular technology for making containers is Docker. Released in 2012, Docker has become one of the fasting growing technologies for web development in the industry and is constantly updated. Some of the key aspects of Docker we are interested in are its ability to isolate containers which can improve security as each container layer will not be harmed if one layer is attacked which can help track where risks and attacks are occurring[3]. Another key aspect we are interested in is the continuous integration that can be implemented with Docker as it works well with various pipelines tools for automatic deployment and a hub that will allow for consistent updates that will lead to a new docker image being deployed[3]. Docker does have a few drawbacks which we should keep in mind when choosing a technology to containerize our application. For instance while Dockers help secure layers of an application the actual layering has weaknesses of its own which should be handled during development of an application. Another drawback is Docker can hurt performance as processes that are in a container do not run as fast as those that run on native operating systems[3]. 
+A second option and a close rival to Docker is the CoreOS container technology. CoreOS is a light linux distribution designed to make multiple machine deployments and optimized for high availability as well as security[6]. CoreOS also replicates cluster and network settings between development and production for quicker deployment as well as configuration checking and versioning. CoreOS also supports Docker as an abstraction layer and can implement the actual Docker system[6]. This inclusion can be huge as we can gain the added benefits of Docker with the advantages of CoreOS. With the utilization of Docker CoreOS can scale very well as the developer can initiate a cluster and then add nodes to the cluster by adding both Docker and CoreOS capabilities. Overall CoreOS is a strong candidate as it can be optimized with Docker to create a smooth deployment that can update the versioning of our application[6]. 
+The final option for containerization is Red Hat Atomic Host a variant of its enterprise Linux version. Atomic Host was designed to be minimal yet optimized for container hosting[7]. Atomic Host would work well for OSU as can be utilized on Linux OS’s. Atomic Host is also designed for large-scale deployment on a variety of distributed machines. Atomic Hosts also embeds Docker, etcd, flannel, and other container operations tools into its systems so many of the discussed Docker benefits can be utilized in Atomic Host[7]. Atomic Host also manages packages and if packages are not used it will ignore them to keep the deployment lightweight and efficient[7]. The main drawback of Red Hat Atomic Host is that it requires a subscription to the Red Hat Enterprise Linux distribution and that cost holds it back as a strong option[7]. 
+
+\section{Conclusion}
+In conclusion, Choosing the programming language and a corresponding framework will be key in developing our web application. These two aspects can dictate how we approach various situations and the set of tools we will have to tackle those hassles. In the end after development is complete using the right container system will be key in securing layers of our application while helping staff with maintenance with versioning updates and automatic deployment. 
+
+\newpage
+\section*{References}
+[1] "Why You Should Choose PHP Programming Language For Developing Website" [Online]. Available: https://www.arpatech.com/blog/choose-php-for-developing-website/
+
+[2] "Why Learn Ruby?" [Online]. Available: http://www.bestprogramminglanguagefor.me/why-learn-ruby
+
+[3] "When and Why to Use Docker" [Online]. Available: https://www.linode.com/docs/applications/containers/when-and-why-to-use-docker/
+
+[4] "Why use Ruby on Rail and what’s it good for?" [Online]. Available: https://thinkmobiles.com/blog/use-ruby-on-rails/
+
+[5] "Ten Reasons To Use Laravel" [Online]. Available: https://www.linkedin.com/pulse/ten-reasons-use-laravel-abdullah-ghanem/
+
+[6] "Container Linux by CoreOS " [Online]. Available: https://searchitoperations.techtarget.com/definition/Container-Linux-by-CoreOS
+
+[7] "Red Hat Atomic Host" [Online]. Available: https://searchitoperations.techtarget.com/definition/Red-Hat-Atomic-Host  
+\end{document}
