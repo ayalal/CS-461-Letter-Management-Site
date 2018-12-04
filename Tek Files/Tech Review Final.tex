@@ -1,0 +1,187 @@
+\documentclass[onecolumn, draftclsnofoot,10pt, compsoc]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{setspace}
+
+
+\usepackage{geometry}
+\geometry{textheight=9.5in, textwidth=7in}
+\setlength{\parskip}{\baselineskip}
+% 1. Fill in these details
+\def \CapstoneTeamName{		The LetterMen}
+\def \CapstoneTeamNumber{		8}
+\def \GroupMemberOne{	Mingwei Gao}
+\def \CapstoneProjectName{		Student Letter of Recommendation Management Site}
+\def \CapstoneSponsorCompany{	}
+\def \CapstoneSponsorPerson{  Justin Wolford}
+
+% 2. Uncomment the appropriate line below so that the document type works
+\def \DocType{		%Problem Statement
+				%Requirements Document
+				Technology Review Final
+				%Design Document
+				%Progress Report
+				}
+			
+\newcommand{\NameSigPair}[1]{\par
+\makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
+\par\vspace{-12pt} \textit{\tiny\noindent
+\makebox[2.75in]{} \hfil		\makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill	\makebox[.75in][r]{Date}}}}
+% 3. If the document is not to be signed, uncomment the RENEWcommand below
+%\renewcommand{\NameSigPair}[1]{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{titlepage}
+    \pagenumbering{gobble}
+    \begin{singlespace}
+    	%\includegraphics[height=4cm]{coe_v_spot1}
+        \hfill 
+        % 4. If you have a logo, use this includegraphics command to put it on the coversheet.
+        %\includegraphics[height=4cm]{CompanyLogo}   
+        \par\vspace{.2in}
+        \centering
+        \scshape{
+            \huge CS 461 Fall Capstone \DocType \par
+            {\large\today}\par
+            \vspace{.5in}
+            \textbf{\Huge\CapstoneProjectName}\par
+            \vfill
+            {\large Prepared for}\par
+            \Huge \CapstoneSponsorCompany\par
+            \vspace{5pt}
+            {\Large\NameSigPair{\CapstoneSponsorPerson}\par}
+            {\large Prepared by }\par
+            Group\CapstoneTeamNumber\par
+            % 5. comment out the line below this one if you do not wish to name your team
+            \CapstoneTeamName\par 
+            \vspace{5pt}
+            {\Large
+                \NameSigPair{\GroupMemberOne}\par
+        
+            }
+            \vspace{20pt}
+        }
+        \begin{abstract}
+        % 6. Fill in your abstract    
+        	The Student Letters of Recommendation Management Site commit to serving every user with perfect function, rich content and convenient operation. In order to ensure positive user experience and meet the needs of our target clients, it is necessary, to begin with expanding the potential scope of service so feedbacks from target clients could be collected for future improvement. In addition, three possible technologies are taken into consideration for completing this site, which is password protection, database management system and user interface. For each possible technology, we list selection criteria according to the project description and requirements. Moreover, tech options with detailed description as well as analyzation of advantages and disadvantages are thoroughly discussed.  
+        \end{abstract}     
+    \end{singlespace}
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+% 7. uncomment this (if applicable). Consider adding a page break.
+%\listoffigures
+%\listoftables
+\clearpage
+
+% 8. now you write!
+\section{Introduction}
+The purpose of this technical review is to assess the work carried out under the project over a specified period and provide technical support to the customer (OSU). After the project officially begins, our team is busy with working on the project architect design, determining the methodology, providing expertise and completing individual deliverables on time. \\
+\\
+	\indent In universities, students frequently ask professors for a letter of recommendation as it is helpful in a future job application or further study application. However, requesting/writing a letter of recommendation has become quite tedious for both students and professors due to a large number of requests and needed information. To solve this issue, our team aims to develop a website which could make the previously stated process smoother and user-friendly. \\
+	\\
+	\indent Since the primary beneficiaries of this project are professors and students in our school, understanding the needs of these two groups is essential. It is believed that communicating with professors and students face to face is the most straightforward and effective method for achieving the purpose. Therefore, for satisfying requirements of target clients, our team intends to invite some potential customers to experience the site in advance so we can collect feedback from them and adjustments could be made on the basis of their feedbacks. Adopted feedbacks from professors and students in the university, our team schedules several meetings to discuss how to make improvements. At present, our group is still in the process of listing the existing problems of the site as precisely as possible and negotiating detailed technology supports and tools which are suitable for this project. \\
+	\\
+	\indent What is more, for the consistency and security of achieving data, our site needs to be consistent with the performance requirements of the official campus website. Thus, password and network security system possessing detection capability ought to be included in the design of this website, which could reduce risk. Meanwhile, our team takes database operating into consideration and explores how to keep or upgrade the database's performance in time. After assuring users’ requirements, we summarize possible technologies which are available for this project through several team meetings. 
+
+
+\section{Possible Technology: Password Protection/Security}
+Professors and students on campus are the primary users of this site. For requesting or writing a letter of recommendation, professors and students need to exchange information on the internet. As some privacy-sensitive information may be involved, it is essential to set up a password for protecting information. 
+
+\textbf{Selection criteria}: \begin{itemize}
+  \item 1, At least eight characters.
+  \item 2, At least one uppercase character.
+  \item 3, At least one lowercase character.
+  \item 4, At least one number.
+  \item 5, Specific aspects are allowed to be used in users’ passwords setting.
+  \item 6, Follow the US-ASCII character encoding.
+  \item 7, If users intend to change passwords, the original password is required with the new password meet the minimum requirements to finish the process.
+  \item 8, Password of each account must be changed every 90 days. The new passwords must be different from the old ones in at least three positions. Also, the passwords cannot be changed more than once a day.  
+  \item 9, Every time when passwords are changed, the system will capture the data and send a message to the user as a reminder. 
+  \item 10, Users who forget their original passwords will not be allowed to set new passwords.   The only solution is to contact the school help service for assistance taking with the student ID card.
+\end{itemize}
+
+\subsection{Tech option}
+\subsubsection{The Cryptographic hash function:}
+ The Cryptographic hash function, a particular category of the hash function, owns the one-way character, which makes it appropriate for cryptography. In other words, inputs lead to corresponding outputs. For different information, it’s hard to provide the repeating values.\\
+\\
+    \indent When recorded users and administrators access to the database, the original request is to encrypt passwords. For example, before storing a user’s record into the desktop, we can use the PHP script to encrypt the password. If the user enters the name and password again, the client/server will hash the user’s passwords again and compare the records in the database with the username and hash values. This process can confirm that the user whether get authorized to login in our site or not. This technology used when we store users’ passwords in the database. \\
+\subsubsection{Asymmetric encryption }
+The traditional data encryption requires sending and receiving end with the same symmetric key which encrypts and decrypts data. The problem is that the traditional method cannot guarantee both ends with the well-coordinated symmetric key when the data transferred on the internet. Therefore, the symmetric key cannot avoid transferring with data together, it’s possible to be intercepted. Instead, Asymmetric encryption using both public key and private key accomplishes password protection, and the two keys are responsible for diverse work. The public key is used for completing the encryption part, not used for decoding the encrypted classified information, and the decoding work is only processed by the private key. Conversely, the encryption part of the private key is only decrypted by the public key. Using this method, we can separate the core of encryption and decryption and don’t have to send the key to the user. Therefore, asymmetric encryption possesses a high-security level, which could be utilized in our passwords protection system.
+\subsubsection{HTTPS}
+The client-side sends encryption requirements to the servers. Then, the service will apply the private key for encrypting their web browsing and sent to client-side with DC (Digital Certificate). If the user doesn't recognize the authority that signed your certificate, dire warnings are presented. If the DC is reliable, the client-side can encrypt the information by using the public key in the DC and switch the enciphered message with service. We can use this technology to build online user identification, protect the privacy and integrity of data exchange.
+
+\section{Possible Technology: Database Management System}
+The Database Management System (DBMS) can make end users create, read, update and delete data in a database. The DBMS serves as an interface between the database and end users or application programs, ensuring that data is consistent or organized and remains easily accessible. [1] Since our project is focused on the communication between two kinds of users, helping each user manage their data is also an essential part of our project.
+
+\textbf{Selection criteria}: \begin{itemize}
+  \item 1, Usability: Be user-friendly and set different levels of permission for different users
+  \item 2, Functionality: \begin{itemize}
+    \item (a) Segmentation and modeling;
+    \item (b) Extract and filter data; 
+    \item (c) Result Visualization.
+     \end{itemize}
+  \item 3, Scalability: The system might add data all the time, so gathering and updating data regularly as planned is necessary. 
+  \item 4, Update: The two most important factors are updating frequency and updating automation. The data ought to be renewed continuously in sync with our service system. 
+\end{itemize}
+
+\subsection{Tech option}
+\subsubsection{Structured Query Language:}
+ The main tech our project would use for DBMS is SQL. \\
+\\
+    \indent SQL (Structured Query Language): SQL is applied to perform the data manipulation, retrieve and maintain the primary language system. It’s used for query data, manipulate data, defining data and control data. \\
+\\
+    \indent It can be divided into five parts:
+     \begin{itemize}
+      \item \textbf{DDL}: DDL: Data Definition Language (Create table or drop table make the data being indexed)
+      \item \textbf{DML}: DML: Data Manipulation Language (Insert, update and delete the table in the design process.) 
+      \item \textbf{TCL}: Transaction Control Language (privilege management and character controls)
+      \item \textbf{DDL}: Data Query Language (searching the necessary information)
+      \item \textbf{DCL}: Data Control Language (monitor the database connection)
+         \end{itemize}
+
+\subsubsection{C++ language }  
+C++ language: link and operate the MYSQL database (need MYSQL++ to connect with C++, using yum command finish the install process and download the MySQL-devel for successful connection). Accessing the database through the C++ is the fundamental way when we test our database.
+
+\subsubsection{ODBC API:  }
+Using OPBC API for coding the system is more effective and straightforward. For example, allocating an environment handle is usually the first step in an ODBC application, then, connecting the data source and executing the SQL command come along. The entire process of using ODBC API to build the database is complicated, but the system data can exchange for future development.
+
+\section{Possible Technology: UI}
+UI contains the aesthetic appearance of the device, response time and the content, which is demonstrated to users directly. [2] Thus, with the purpose of serving processors and students on the campus, our team aims to design a clear and straightforward UI with satisfied function before framing the database. 
+
+\textbf{Selection criteria}: \begin{itemize}
+  \item 1, Maintaining consistent information with the user at the same level.
+  \item 2, More usability 
+  \item 3, Decrease the system response time. 
+  \item 4, Warning or error messages can be indicated if it is possible. 
+  \item 5, The entire website must follow the requirements of customers and be professional.
+  \item 6, Try decreasing the action of user operation. 
+\end{itemize}
+\subsection{Tech option}
+\subsubsection{HTML.HTML5 language: }
+  It is quite easy to use HTML to build our UI. On the one hand, it can divide UI and backend logic into separate parts. On the other hand, the team can arbitrarily change the website frame structure anytime if our user provides useful feedback about the interface. Meanwhile, HTML code framework is accessible on different websites, which could save our time on the front end. Consequently, we can be concentrated on the backend in the future. 
+
+\subsubsection{CSS: }
+CSS can make every UI component become more individual because the CSS resource contains a set of predefined templates which could be utilized for lifting efficiency. When CSS is working, we can change all the pages that use the style sheet at once by changing the styles defined in one file. Also, add some CSS properties to improve the appearance and feeling of our interface.
+
+\subsubsection{Photoshop:}
+Using Photoshop could perfect the overall web and page design, for instance, color matching and injecting a bit individuality and creativity into our interface. The principal function of Photoshop is for creating an esthetical visual effect so that our website may maintain the same style as customer required. For example, chart layer designing can make our website look better and comfortable.
+
+
+\section{Conclusion}
+As it is mentioned above, all the technical applications are considered before our team starts to design Letter of Recommendation Management Site. The password protection and database design should be conducted together since their content system is interconnecting with each other. For the password security, HTTPS is utilized to the front-end web development, while Asymmetric encryption and the hash function are applied to the back-end password security design. The technologies involving MySQL, C++, and ODBC all could be used during the project database design process for solving the complexity of password security. In addition, each technical option of UI referred to is essential and supposed to be utilized in the future design in order to achieve positive user experience. 
+
+
+\newpage
+\section*{References}
+\begin{flushleft}
+[1] M. Rouse, “What is database management system (DBMS)? - Definition from WhatIs.com,” SearchSQLServer." [Online]. Available: https://searchsqlserver.techtarget.com/definition/database-management-system. [Accessed: 03-Nov-2018].
+\end{flushleft}
+\begin{flushleft}
+[2] Rouse, M. (2018)."What is user interface (UI)? - Definition from WhatIs.com."[online] SearchMicroservices. Available at: https://searchmicroservices.techtarget.com/definition/user-interface-UI [Accessed 3 Nov. 2018]. 
+\end{flushleft}
+
+
+\end{document}
