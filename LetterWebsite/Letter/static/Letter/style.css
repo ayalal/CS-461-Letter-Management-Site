@@ -1,0 +1,18 @@
+#mainNav{
+  background-color: #d73f09;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #C7CDD1;
+  box-sizing: border-box;
+}
+
+.searchButton{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.osuLogo{
+  height: 80px;
+}
