@@ -16,18 +16,13 @@
       <div class="navbar-header">
         <a href="/"><img src="{% static 'Letter/images/osu-logo.jpeg' %}" alt="" class="osuLogo"></a>
       </div>
-      <a href="#" class="searchButton">
-        <button class="btn btn-outline-success" type="button" name="button">Search</button>
-      </a>
     </nav>
-    <h1>Letter of Recommendation Site</h1>
-    {% if messages %}
-      {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-          {{ message }}
-        </div>
-      {% endfor %}
-    {% endif %}
+    <div class="content section">
+      <h2>You have been logged out</h2>
+      <div class="border-top bt-3">
+        <small class="text-muted"><a class="ml-2" href="{% url 'login' %}">Log In Again</a></small>
+      </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

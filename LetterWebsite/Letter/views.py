@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 
 def index(request):
@@ -22,7 +23,13 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account Created for {username}!')
-            return redirect('/')
+            return redirect('login')
     else:
         form = UserCreationForm()
     return render(request, 'Letter/register.html', {'form': form})
+
+#def user_login(request):
+#    username = request.POST['username']
+
+#def logout(request):
+#    return render(request, 'Letter/logout.html')
