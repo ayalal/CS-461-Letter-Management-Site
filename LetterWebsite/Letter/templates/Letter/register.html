@@ -14,11 +14,8 @@
   <body>
     <nav id="mainNav">
       <div class="navbar-header">
-        <img src="{% static 'Letter/images/osu-logo.jpeg' %}" alt="" class="osuLogo">
+        <a href="/"><img src="{% static 'Letter/images/osu-logo.jpeg' %}" alt="" class="osuLogo"></a>
       </div>
-      <a href="#" class="searchButton">
-        <button class="btn btn-outline-success" type="button" name="button">Search</button>
-      </a>
     </nav>
     <div class="content section">
       <form method="POST">
@@ -31,7 +28,7 @@
           <button class="btn btn-outline-info" type="submit">Join</button>
       </form>
       <div class="border-top bt-3">
-        <small class="text-muted">Already a member? <a class="ml-2" href="#">Sign In</a></small>
+        <small class="text-muted">Already a member? <a class="ml-2" href="{% url 'login' %}">Sign In</a></small>
       </div>
     </div>
 
