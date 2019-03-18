@@ -28,6 +28,12 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'Letter/register.html', {'form': form})
 
+def schedule(request):
+	return render(request, 'Letter/schedule.html')
+
+def letter(request):
+	return render(request, 'Letter/letter.html')
+
 #def user_login(request):
 #    username = request.POST['username']
 
