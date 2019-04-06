@@ -13,10 +13,8 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('signin/', views.register, name='register'),
     path('upload/', views.upload, name='upload'),
-    path('preference/', views.get_preference, name='preference'),
-    path('preferences/', views.view_preference, name='preferences'),
-        path('schedule/', views.schedule, name='schedule'),
-        path('letter/', views.letter, name='letter'),
+    path('schedule/', views.schedule, name='schedule'),
+    path('letter/', views.letter, name='letter'),
     path('logout/', auth_views.LoginView.as_view(template_name='Letter/logout.html'), name='logout'),
     path('login/', auth_views.LoginView.as_view(template_name='Letter/login.html'), name='login'),
 ]
