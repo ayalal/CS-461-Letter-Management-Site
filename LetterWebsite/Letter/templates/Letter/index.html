@@ -51,4 +51,21 @@
 </form>
 </div>
 
+<table class ="table mb-0">
+	<thead>
+		<tr>
+			<th>My Letters</bh>
+		</tr>
+	</thead>
+	<tbody>
+		{% for document in documents %}
+		<tr>
+			<td>
+				<a href="{{ document.document.url }}">{{document.filename}}</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
   {% endblock %}

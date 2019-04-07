@@ -28,8 +28,10 @@ def index(request):
             return redirect('index')
     else:
         form = DocumentForm()
+    documents = Document.objects.filter(user=request.user)
     return render(request, 'Letter/index.html', {
-        'form': form
+        'form': form,
+        'documents': documents
     })
 
 #this is a tmeporary page for user sign in/sign up. This won't be needed once connected to CAS
