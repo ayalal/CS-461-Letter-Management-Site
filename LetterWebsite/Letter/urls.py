@@ -8,16 +8,16 @@ from Letter import views as user_views
 from . import views
 
 urlpatterns = [
-    path('', views.index),
+    path('', views.index, name="index"),
     path('admin/', admin.site.urls),
     path('register/', views.register, name='register'),
     path('signin/', views.register, name='register'),
-    path('upload/', views.upload, name='upload'),
-    path('preference/', views.get_preference, name='preference'),
-    path('preferences/', views.view_preference, name='preferences'),
-        path('schedule/', views.schedule, name='schedule'),
-        path('letter/', views.letter, name='letter'),
-    path('logout/', auth_views.LoginView.as_view(template_name='Letter/logout.html'), name='logout'),
+    #path('upload/', views.upload, name='upload'),
+    #path('preference/', views.get_preference, name='preference'),
+    #path('preferences/', views.view_preference, name='preferences'),
+    path('schedule/', views.schedule, name='schedule'),
+    path('letter/', views.letter, name='letter'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='Letter/logout.html'), name='logout'),
     path('login/', auth_views.LoginView.as_view(template_name='Letter/login.html'), name='login'),
 ]
 

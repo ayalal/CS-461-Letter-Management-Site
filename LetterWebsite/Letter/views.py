@@ -5,17 +5,34 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 
+from .forms import DocumentForm
+from .models import Document
+
+#def index(request):
+#    return render(request, 'Letter/index.html')
+
+#def upload(request):
+#    if request.method == 'POST':
+#        uploaded_file = request.FILES['document']
+#        fs = FileSystemStorage()
+#        fs.save(uploaded_file.name, uploaded_file)
+#    return render(request, 'Letter/upload.html')
+
 def index(request):
-    return render(request, 'Letter/index.html')
-
-def upload(request):
     if request.method == 'POST':
-        uploaded_file = request.FILES['document']
-        fs = FileSystemStorage()
-        fs.save(uploaded_file.name, uploaded_file)
-    return render(request, 'Letter/upload.html')
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.user = request.user
+            obj.save()
+            return redirect('index')
+    else:
+        form = DocumentForm()
+    return render(request, 'Letter/index.html', {
+        'form': form
+    })
 
-#this is a tmeporary page sor user sign in/sign up. This won't be needed once connected to CAS
+#this is a tmeporary page for user sign in/sign up. This won't be needed once connected to CAS
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
