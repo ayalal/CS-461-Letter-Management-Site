@@ -1,0 +1,60 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'Letter/style.css' %}" type="text/css">
+    <title>Letter of Recommendation</title>
+  </head>
+  <body>
+    <nav id="mainNav">
+      <div class="navbar-header">
+        <a href="/"><img src="{% static 'Letter/images/osu-logo.jpeg' %}" alt="" class="osuLogo"></a>
+      </div>
+    </nav>
+    <h1>SearchTeacher</h1>
+     <li> <label>SearchResult</label></li>
+    <!--TeacherList-->
+    <table>
+      <tr>
+        <th>TID</th>
+        <th>Name</th>
+        <th>Department</th>
+      </tr>
+        {% for teacher in teachers %}
+            <tr>
+                <th>{{ teacher.id}}</th>
+                <th>{{ teacher.tname}}</th>
+                <th>{{ teacher.department }}</th>
+            </tr>
+        {% endfor %}
+    </table>
+<li> <label>Departments</label></li>
+    <!--SearchArea-->
+    <form method="POST" action="/search_by_department/" >
+         {% csrf_token %}
+        <select name="department">
+            <option value="Applied Arts and Sciences">Applied Arts and Sciences</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Earth and Space Sciences">Earth and Space Sciences</option>
+            <option value="History">History</option>
+        </select>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit" >Search</button></div>
+      </form>
+    <!--Back-->
+     <div class="form-group">
+            <a  href= '/index_stu/' class="btn btn-outline-info"  >Back</a></div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>

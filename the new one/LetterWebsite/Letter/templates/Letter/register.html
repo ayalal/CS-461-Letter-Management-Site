@@ -1,0 +1,58 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'Letter/style.css' %}" type="text/css">
+    <title>Letter of Recommendation</title>
+  </head>
+  <body>
+    <nav id="mainNav">
+      <div class="navbar-header">
+        <a href="/"><img src="{% static 'Letter/images/osu-logo.jpeg' %}" alt="" class="osuLogo"></a>
+      </div>
+    </nav>
+    <div class="content section">
+      <form method="POST" action="/register/register_check/">
+        {% csrf_token %}
+             <Label>Username</Label> <input name="username">
+            <Label>Password</Label> <input type='password' name="password">
+            <Label>Password Again</Label> <input type='password' name="password2">
+            <select name="department">
+                <option value='Computer Science'>Computer Science</option>
+                 <option value='Applied Arts and Sciences'>Applied Arts and Sciences</option>
+                 <option value='History'>History</option>
+                 <option value='Earth and Space Sciences'>Earth and Space Sciences</option>
+             </select>
+            <Label>Role</Label>
+              <input type="radio" name="role" value="student" />Student
+              <input type="radio" name="role" value="teacher" checked="true"/>Teacher
+           <div class="form-group">
+            <button class="btn btn-outline-info" type="submit" >Register</button></div>
+
+            {% if flag == '1' or flag == 1 %}
+                <small class="text-muted  "><font size="10" color="red">{{ msg }}</font></small>
+             {% endif %}
+
+
+
+      </form>
+
+      <div class="border-top bt-3">
+        <small class="text-muted">Already a member? <a class="ml-2" href="{% url 'login' %}">Sign In</a></small>
+      </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>

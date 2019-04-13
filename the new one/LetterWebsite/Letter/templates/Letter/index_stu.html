@@ -1,0 +1,62 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'Letter/style.css' %}" type="text/css">
+    <title>Letter of Recommendation</title>
+  </head>
+  <body>
+    <nav id="mainNav">
+      <div class="navbar-header">
+        <a href="/"><img src="{% static 'Letter/images/osu-logo.jpeg' %}" alt="" class="osuLogo"></a>
+      </div>
+        <a href="/"> logout</a>
+    </nav>
+    <li> <label>My Request</label></li>
+
+    <table border="1">
+      <tr>
+        <th>SID</th>
+        <th>StudentName</th>
+        <th>Requirement</th>
+        <th>StudentFilePath</th>
+        <th>TeacherName</th>
+        <th>Feedback</th>
+        <th>TeacherFilePath</th>
+      </tr>
+        {% for content in contents %}
+            <tr>
+                <th>{{ stu.id}}</th>
+                <th>{{ stu.sname}}</th>
+                <th>{{ content.requirement }}</th>
+                <th>{{ content.stufileposition }}</th>
+                <th>{{ content.teaname }}</th>
+                <th>{{ content.feedback }}</th>
+                <th>{{ content.teafileposition }}</th>
+                <th></th>
+            </tr>
+        {% endfor %}
+    </table>
+    <!--Search Teacher-->
+    <li><a href="/search_teacher/{{ stu.id }}">Search Teacher</a></li>
+
+    <!--Upload File-->
+     <li><a href="/upload/{{ stu.id }}">Upload File</a></li>
+
+    <!--Request-->
+     <li><a href="/new_request/{{ stu.id }}">New Request</a></li>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>
