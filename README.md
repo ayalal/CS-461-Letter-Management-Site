@@ -28,6 +28,8 @@ python3 manage.py runserver
 
 Now in a web browser, go to http://127.0.0.1:8000.
 
+If you're still having trouble installing Django, you can always refer to Django's official documentation [here](https://docs.djangoproject.com/en/2.1/topics/install/#install-the-django-code) for more help.
+
 ## Deployment
 
 By default, the server runs using a SQLite database for easy development on a local machine. For production use, it is recommended to use a MySQL or MariaDB database. Installing MySQL is out of the scope of this guide. After MySQL is installed, create a user and an empty database for use with this project. Now settings.py in the LetterWebsite directory needs to be modified. In the databases section, remove or comment out the code for the SQLite database, and uncomment the code for the MySQL database. Some modifications to the user, password, and host will need to be made for use with the new database.
