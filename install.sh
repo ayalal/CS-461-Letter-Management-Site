@@ -6,6 +6,12 @@ if !(command -v python3 &>/dev/null); then
 	exit
 fi
 
+# check if pip is installed
+if !(command -v pip3 --version &>/dev/null); then
+	echo pip is not installed. Please install pip before running this script.
+	exit
+fi
+
 cd LetterWebsite
 
 # install django
