@@ -1,0 +1,218 @@
+\documentclass[draftclsnofoot, onecolumn, letterpaper, 10pt]{IEEEtran}
+
+
+\usepackage[margin=0.75in]{geometry}
+\geometry{textheight=8.5in, textwidth=6in}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{alltt}
+\usepackage{float}
+\usepackage{color}
+\usepackage{url}
+\usepackage{listings}
+
+\graphicspath{ {./images/} }
+
+\usepackage{balance}
+\usepackage[TABBOTCAP, tight]{subfig}
+\usepackage{enumitem}
+
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[hidelinks]{hyperref}
+\usepackage{etoolbox}
+%\patchcmd{\section}{\centering}{}{}{}
+
+\parindent = 0.0 in
+\parskip = 0.1 in
+
+\begin{document}
+
+\begin{titlepage}
+     \centering
+     {\scshape\LARGE Oregon State University \par}
+     \vspace{1cm}
+     {\scshape\Large CS 461 Senior Capstone\par}
+     \vspace{1.5cm}
+     {\huge\bfseries Letter of Recommendation Management Site Winter Final Report\par}
+     \vspace{2cm}
+     {\Large Lorenzo Ayala\hspace{0.75cm}Johnathan Lee\par 
+     Matthew Kottre\hspace{0.75cm}Scott Waddington\hspace{0.75cm}Mingwei Gao\par}
+    \vfill
+
+    \begin{abstract}
+        This document provides an overview of the state of the project as of week 10 for the Winter Term 2019. Included is the purpose of this project, current progress, remaining implementation, and barriers and solutions that we have experienced throughout our ongoing development of this project.
+    \end{abstract}
+
+    \vfill
+
+    {\large Group 8\par}
+    {\large The LetterMen\par}
+    {\large Winter 2019\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Document Purpose}
+The purpose of this progress report is to demonstrate the current progress and standpoint of the given project. A brief recap of the project's purpose and goals will be provided a long with an overview of the current progress made on the project with the remaining features that still need to be implemented. Discussion on barriers that have impeded our progress will be discussed with the inclusion of the solutions utilized to overcome them. Finally, images of the project will be shown displaying the current level of release and implementation of features.  
+
+\section{Project Purpose}
+The current style of transaction for letters of recommendation are done via in-person conversation or through the email system at Oregon State University (OSU). While this style works it can become difficult to track separate requests from students as the list of requests grows for Professors. The previously stated scenario can then lead to expanding issues which can consist of forgetting who has requested a letter, what the letter is supposed to be formatted for, the necessary materials to develop a letter, and so on. The issues have continued to grow as the student body has been continuously growing leading to a large growth of requests as stated earlier. From a student’s perspective they face the issues of finding the right professor to write their letter while providing the necessary documents for that specified professor to create an effective letter. In the present system students tend to ask former professors from previous terms which is fantastic but follow up can be difficult while meeting the requirements of the necessary documents required from the professor. With our site we will be able to create a structured approach for professors and students, to handle both letter of recommendation requests as well as gather the necessary information from students to create a smooth process for both users.
+
+\section{Project Goals}
+The letter of recommendation management site will aim towards minimizing the hassle professors and students face today with professors facing numerous requests to write letters of recommendation for students while students must provide requested documents to professors. The goal for the project is to develop a working website which will be a central hub for managing letter of recommendation requests a long with information management regarding technical documents. Implementation of the site will also help add to the overall services provided by Oregon State University by reducing stress and time consumption of a growing writing process.
+
+\section{Current Progress and Future Plans}
+In its current state the letter of recommendation web application is near beta level functionality consisting of a basic user interface with capabilities such as file upload, user preferences, and elements for a request system which allows for filtering. For future plans the team is looking to implement Oregon State University's CAS login system to connect students and professors since we have recent acquired the funds for an Amazon Web Services account. With a login system in place we can finalize the features to work properly with OSU accounts and begin prototyping to finalize our application. This involves incorporating a MySQL database to store some high-level account data, as well as simple data for an account's associated letters of recommendation. At the moment the project is in a period of development where that when the CAS setup is complete with OSU we can simply plug in our functionality to test the first prototype. In the following subsections we will discuss the major features and their current state in the application. 
+
+\subsection{User Interface}
+For the user interface of our application we wanted to stick to a similar looking style to many of OSU's web pages hence the navigation bar. However the team wanted to create some elements that will imitate that of Google Drive since we believe it is a good platform to use as a template for this project. We imitated some of Google Drives style by placing in buttons that will allow for file transfer and a search bar that will allow students to search for the desired candidate for their letter of recommendation. Reflecting back on the file upload the team is planning on designing a similar style of displaying files like Google Drive to create an experience that should feel familiar. 
+
+Further development of the interface will have two distinct styles in terms of what will appear for each of our users. Students will have an interface that will allow them to upload files, make requests to candidates for their letters of recommendation, and download submitted letters of recommendation. Professors or other staff will be able to handle requests in the app while also having the ability to submit completed letters to students whose requests they accepted. Below is a simple interface for students who can upload files and view pending requests they have sent. Within the navigation bar the student can search for a professors and distinguish which department they want to search. 
+
+\includegraphics[width=\textwidth]{images/userInterface.png}
+
+\subsection{Account Management and Fileserving}
+One of the most important important features in this project is the ability to upload letter of recommendation and pass them between users. However, for a given upload, only the uploader should be able to view it, and then that permission extends to anyone they choose to share it with. So, setting up secure accounts is pivotal to this project. Because this website is designed for Oregon State University, it should implement OSU's CAS login, allowing for a secure login process, and secure session with our website. Users should be able to use their ONID accounts to sign in, meaning that OSU students and professors wouldn't need to generate a new account to use our site. Currently, we are in the process of getting our site connected to CAS so that we can finish with the database which will hold account information, and some information about the associated account's files.
+
+In order to achieve Beta-level functionality in this project, we were forced to implement a less-than-ideal temporary login/logout system to accommodate some of our file-sharing and upload features for the site. Luckily, Django has some login and logout functions and forms pre-made, allowing us to setup a basic login, logout, and register system in which users can make an account, and use their saved credentials to login to our site. Once CAS is fully functional this temporary system will be removed and OSU's CAS will handle any login and logout functions.
+
+File serving for the server right now is in a very simple state. Django allows for simple fileserving with many of its built-in features, and only requires that the developer hook everything up correctly by specifying a media root for uploaded files to reside after they are uploaded, using an HTML file upload form, and specifying a URL pattern which will serve as the site's upload page. It is likely that in the future, this upload form will be incorporated into a different view for the sake of tidiness and ease of access, but right now in its simplest functionality, it resides on its own page. In the future, it will be necessary to include a way to download these files, which shouldn't be too difficult, as the files exist in their own media folder and would involve a simple permission check before being processed for download. It will also be necessary to incorporate a way of sharing files between accounts, but in order to do this, the site should first be connected to CAS so that ONID accounts can be used.
+
+\begin{lstlisting}[caption={Simple file upload request in Django},captionpos=b]
+def upload(request):
+    if request.method == 'POST':
+        uploaded_file = request.FILES['document']
+        fs = FileSystemStorage()
+        fs.save(uploaded_file.name, uploaded_file)
+    return render(request, 'Letter/upload.html')
+\end{lstlisting}
+
+The listing above shows some of Django's built-in functions for file upload. The request parameter is first queried to check its method type, and if it is a post request it knows to store the file in the uploaded\_file variable and save it to the media root destination. Following is an image of serving files to the site which was created with a mixture of bootstrap and django/python. 
+
+\includegraphics[width=\textwidth]{images/fileUpload.png}
+
+
+\subsection{User Preferences}
+Another one of the features for this project is for professors to be able to ask for specific things from students so that they can define what they need beforehand to write a letter of recommendation. This is a function that will require professors to be able to write what they want and allow students to view these messages. Preferably, there will be a redirect for users that will take them to a specific page to either edit preferences or view preferences. Currently, there is a page with a text field and a button setup. The preferences would ideally be displayed alongside the editing features for a professor while those same editing features should be hidden from a student. A useful feature to have is generating a unique ID for preferences for each professor so that the database can track which preferences belong to which professor so that it can display them properly.
+
+\subsection{Database Design and Set Up}
+The critical factor that helps our website user to save and exchange the upload information in our project is the database design and set up. The reliable and efficient database design can make sure that the website is usable and creates an engaging experience for our users. On the data side, the fundamental method help improves the access speed is using a non-relational database. By normalizing the database design,  we will effectively reduce the query response time.  We are currently finishing the basic database framework, the rest of the work is to optimize the performance and connect it by the PHP script. 
+
+The following outline is very helpful when we design the database part
+\begin{itemize}
+\item[-] 1, Using the applicative column properties
+
+In general, smaller tables provide higher performance. So, when we create the table, we can try to make the field width as short as possible. Or rather, try to set the field as NOT NULL. In this kind of condition, the database doesn't need to compare the Null value. Some text field, we can define it as ENUM get the same effect
+\item[-] 2, Using join replace the sub-queries
+
+MySQL doesn't need to create a temporary table to finish the query work that logically needs two steps if using join instruction
+\item[-] 3, Using UNION replaces the temporary table manually created.
+\item[-] 4, Creating the index can help improve data searching performance. 
+
+Index improves query performance by avoiding a full table scan. In general, the index should use on the field with the function like determining or sorting. Don't use it on the field has repeating value. The best indexes using number in one table should less than six.
+\item[-] 5, Different table with different function, we can selective using InnoDB and MyISAM.
+\item[-] 6, Avoid over-designing for reducing the usage of the resource like creating and deleting the temporary table frequently.
+\item[-] 7, Using varchar/nvarchar replace char/nchar, because of the long-length field needs small storage that will save the memory space.
+ \end{itemize}
+Also, there are several useful tips when we finish the whole project in the future. 	
+\begin{itemize}
+\item[-] A, The basic verification, set and verify the length of the password. For example, if the system setting the length of the password is nine- digit at least, the logging user input eight-digit numbers or letter. In this kind of condition, the system will remind the user the password length is not correct. So, we will not set these indifferent sorting function in the database part since these capabilities can be made available in the front-end part.
+\item[-] B, For the multiple queries, adding the number of threads. (these are the service works)	
+\end{itemize}
+
+Preparation:
+\begin{lstlisting}[caption={Login as student and upload files database},captionpos=b]
+CREATE DATABASE Recommendation; 
+USE Recommendation;
+CREATE TABLE Student(
+studentId int NOT NULL auto_increment, 
+studentName varchar(255) NOT NULL, 
+stuPassword varchar(255) NOT NULL, 
+PRIMARY KEY (studentId) )auto_increment=1000000;
+CREATE INDEX StudnetIndex ON Student(studentName, stuPassword);
+INSERT INTO Student ( studentName, stuPassword )
+VALUES ( "David", 123456 ),( "Tony", 123456 );
+
+\end{lstlisting} 
+\begin{lstlisting}[caption={Login as teacher and upload files database},captionpos=b]
+CREATE TABLE Teacher(
+teacherId int NOT NULL auto_increment,
+teacherName varchar(255) NOT NULL,
+teaPassword varchar(255) NOT NULL,
+PRIMARY KEY (teacherId) )auto_increment=2000000;
+
+CREATE INDEX TeacherIndex ON Teacher(teacherName, teaPassword);
+INSERT INTO Teacher ( teacherName, teaPassword ) 
+VALUES ( "Tom", 123456 ),( "Sam", 123456 ),( "Kitty", 123456 );
+\end{lstlisting}
+
+\begin{lstlisting}[caption={file information},captionpos=b]
+CREATE TABLE FileInfo(
+Id int NOT NULL auto_increment, format varchar(255),
+position varchar(255),
+userId int NOT NULL, PRIMARY KEY (Id) )auto_increment=1
+\end{lstlisting}
+
+\begin{lstlisting}[caption={conncetion},captionpos=b]
+CREATE TABLE Content(
+Id int NOT NULL auto_increment, 
+stuFileId int,
+studentId int NOT NULL,
+requirement varchar(255),
+teaFileId int,
+teacherId int NOT NULL,
+feedback varchar(255),
+PRIMARY KEY (Id),
+FOREIGN KEY(studentId) REFERENCES Student(studentId) 
+ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY(teacherId) REFERENCES Teacher(teacherId) 
+ON DELETE CASCADE ON UPDATE CASCADE
+)auto_increment=1;
+\end{lstlisting}
+
+
+
+Implement functions:
+\begin{lstlisting}[caption={Login as student},captionpos=b]
+SELECT stuPassword, studentId FROM Student WHERE studentName="David";
+\end{lstlisting}
+\begin{lstlisting}[caption={Student upload files},captionpos=b]
+INSERT INTO FileInfo ( format, position, userId ) 
+VALUES ( "docx", "E:\files\XXX.docx", 1000000);
+\end{lstlisting}
+\begin{lstlisting}[caption={Select teacher},captionpos=b]
+SELECT teacherId, teacherName FROM Teacher;
+\end{lstlisting}
+\begin{lstlisting}[caption={Students writes requirements with or without attachment},captionpos=b]
+INSERT INTO Content ( studentId, requirement, teacherId ) 
+VALUES ( 1000000, "Dear professor Lee,....", 2000001);
+
+INSERT INTO Content ( studentId, requirement, teacherId, stuFileId ) 
+VALUES ( 1000000, "Dear professor Lee,....", 2000001, 3);
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Get file ID uploaded by techer},captionpos=b]
+SELECT Id FROM FileInfo WHERE position LIKE "%XXX1.pdf" and userId=2000001;
+\end{lstlisting}
+
+
+ 
+\subsection{Schedule}
+The schedule lists the letters that an instructor has already committed to writing ordered by the due date. This allows the instructor to easily prioritize their workload with little effort on their part. The layout and design are mostly finished. Due to our database only recently being finished, the schedule is not currently connected to the database and uses dynamically loaded filler data. The data is hard-coded into Python and retreived using a GET request, so it will be very easy to retrieve data from the database once it is connected.
+
+\includegraphics[width=\textwidth]{images/schedule.png}
+
+\section{Preliminary Results and Interface Feedback}
+Currently our application is in the process of acquiring CAS login functionality however we are still waiting for the necessary information from our client to progress. However, we have been able to test some of our previously discussed features which have worked successfully on a local level. In terms of the user interface we have received positive feedback on our overall design and future plans on the interface. More will be added to this section as we continue our redesign and implement the login system which will allow us to do more in depth analysis. 
+
+\section{Conclusion}
+Overall the application has a very good foundation for completion. Each of the necessary pieces are ready to be implemented so that the application will become fully feature to the clients specification. We are still waiting for the information to complete the login which is the only speed bump we have faced so far since finding the necessary funds and accounts does take time. Upon passing our problem we will be able to finish our project and begin more in depth testing/analysis of our implementations on the Oregon State University network which will allow us to add/update any requested features from our users. With the completion of our application we hope we can provide a modern solution to a process between students and faculty. 
+
+
+
+\end{document}
+  

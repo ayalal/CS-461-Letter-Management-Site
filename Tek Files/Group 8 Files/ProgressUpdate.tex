@@ -1,0 +1,150 @@
+\documentclass[compsoc, draftclsnofoot, onecolumn, letterpaper, 10pt]{IEEEtran}
+
+
+\usepackage[margin=0.75in]{geometry}
+\geometry{textheight=8.5in, textwidth=6in}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{alltt}
+\usepackage{float}
+\usepackage{color}
+\usepackage{url}
+\usepackage{listings}
+
+\usepackage{balance}
+\usepackage[TABBOTCAP, tight]{subfig}
+\usepackage{enumitem}
+
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[hidelinks]{hyperref}
+\usepackage{etoolbox}
+\patchcmd{\section}{\centering}{}{}{}
+
+\parindent = 0.0 in
+\parskip = 0.1 in
+
+\begin{document}
+
+\begin{titlepage}
+     \centering
+     {\scshape\LARGE Oregon State University \par}
+     \vspace{1cm}
+     {\scshape\Large CS 461 Senior Capstone\par}
+     \vspace{1.5cm}
+     {\huge\bfseries Letter of Recommendation Management Site Progress Update\par}
+     \vspace{2cm}
+     {\Large Lorenzo Ayala\hspace{0.75cm}Johnathan Lee\par 
+     Matthew Kottre\hspace{0.75cm}Scott Waddington\hspace{0.75cm}Mingwei Gao\par}
+    \vfill
+
+    \begin{abstract}
+        This document provides an overview of the state of the project as of the end of Fall Term 2018. Included is the purpose of this project, as well as any issues, concerns, goals, and early implementation so far.
+    \end{abstract}
+
+    \vfill
+
+    {\large Group 8\par}
+    {\large Fall 2018\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Document Purpose}
+The purpose of this progress report is to demonstrate the current progress and standpoint of the given project. A brief recap of the project's purpose and goals will be provided a long with a in-depth week by week analysis displayed within a retrospective table which will contain the positives, deltas, and action taken during those specific weeks. The document will end with a conclusion that will state the teams current standpoint and future plans for the project. 
+
+\section{Project Purpose}
+The current style of transaction for letters of recommendation are done via in-person conversation or through the email system at Oregon State University. While this style works it can become difficult to track separate requests from students as the list of requests grows for Professors. The previously stated scenario can then lead to expanding issues which can consist of forgetting who has requested a letter, what the letter is supposed to be formatted for, the necessary materials to develop a letter, and so on. The issues have continued to grow as the student body has been continuously growing leading to a large growth of requests as stated earlier. From a student’s perspective they face the issues of finding the right professor to write their letter while providing the necessary documents for that specified professor to create an effective letter. In the present system students tend to ask former professors from previous terms which is fantastic but follow up can be difficult while meeting the requirements of the necessary documents required from the professor. With our site we will be able to create a structured approach for professors and students, to handle both letter of recommendation requests as well as gather the necessary information from students to create a smooth process for both users.
+
+\section{Project Goals}
+The letter of recommendation management site will aim towards minimizing the hassle professors and students face today with professors facing numerous requests to write letters of recommendation for students while students must provide requested documents to professors. The goal for the project is to develop a working website which will be a central hub for managing letter of recommendation requests a long with information management regarding technical documents. Implementation of the site will also help add to the overall services provided by Oregon State University by reducing stress and time consumption of a growing writing process.
+
+\subsection{User Interface}
+The first goal is to design a user interface for both professors and students that will be a friendly, easy-to-learn experience. Any site that utilizes an effective, yet simple design will be immensely useful for user to complete their current objectives (in this situation letter of recommendations). Employing such a simple interface should be essential as it provides the type of experience end users should have with the site so that upon return they will not have to re-learn the sites mechanics.
+
+\subsection{Functionality}
+Second, after implementing an effective interface functionality must be added using Python. In terms of functionality the goals are quite simple, we will need to create a secure log in for our users using LDAP or SAML which will use the databases containing Oregon State emails and passwords to check authentication. After authentication is handled we will then need to allow students to submit requests to professors to write letters of recommendation through a simple button and pop-up which will let the students select their desired professor. Within the selection menu we will also include a load indicator which will display the number of requests the professor has received and how many letters they are currently working on. On the other side professors will be able to check the requests they have received and whose students letters they are currently working on. Professors will also be able to make requests to students concerning documents that would be helpful in writing a letter of recommendation (resumes, articles, projects, etc.). On top of requesting documents from students’, professors will also be able to personalize their profiles in a sense that will give students a sense of what documents will be necessary for them to write a letter of recommendation.  When receiving/viewing document requests the students will have a separate hub that will allow them to submit the requested documents which they can then share with the requesting professor. The hub will hold onto those documents for future reference and will need to be updated by the student. Professors will also have their own document hub where they can manage, update, and submit the letters to the students whose requests they have accepted. Upon completion of letters, professor profiles will also be updated to show their new request load to students.
+
+\subsection{Database}
+The third goal is to implement a MySQL database so that a relational database to track specific documents to students and professors. In order to achieve this, UUID’s (universally unique identifiers) will be implemented with the accounts for security and functionality purposes. UUID’s will be used to generate identifiers for each of the accounts so that the user's documents will be bound to their accounts in a secure manner (hackers would not be able to iterate through objects).
+
+
+\newpage
+\section{Weekly Retrospective}
+\begin{table}[ht]
+\centering
+
+\begin{tabular}{ | p{0.05\linewidth} | p{0.3\linewidth} | p{0.3\linewidth} | p{0.3\linewidth}|}
+    \hline
+    \textbf{Week} & \textbf{Positives} & \textbf{Deltas} & \textbf{Actions}\\ \hline
+    3 & We emailed our client, Justin Wolford & We have yet to hear back from Justin and we have not started planning our project yet & Once we have gotten a response from Justin we can meet with him and start planning out project\\ \hline
+    4 & We met three times to discuss planning the project. We started on the Problem Statement and Requirements Draft. & We have yet to meet with our TA, Wesley, but plan to meet with him this week. & After meeting with our TA, we will get a better idea of whether or not we are on the right track with our Problem Statement.\\ \hline
+    5 & We created our Github repository to store all of our project files and Latex files. We have another meeting with Wesley scheduled this week. & We haven't yet finished the Requirements draft which is due next week. & We plan to work on the Requirements draft on Monday and Tuesday of next week so that we can finish it on time.\\ \hline
+    6 & We finished listing the requirements of the project and made a team standards & We need to be able to uphold the team standards and accomplish the requirements of the project & Talk about the requirements\\ \hline
+    7 & Reviewing of individual technology components is finished & We can now understand the purpose of each piece of technology & Can start splitting up the project according to what we're working with\\ \hline
+    8 & We did not meet or discuss projects & We could use more group meetings to discuss the end-of-term plans & Meet more often\\ \hline
+    9 & Week of Thanksgiving, kept in contact via email & We could use more meetings in person & Meet more often\\ \hline
+    10 & Finished the design document and compiled a progress report & We can start implementation now that the design is finished & Start implementation\\ \hline 
+\end{tabular} 
+\end{table}
+
+\section{Conclusion}
+Currently with all the necessary documents complete the team now has a foundation to begin building the student letter of recommendation management site. The project will be built with Python and Python's popular framework Django to implement the functionality of our web application while we implement bootstrap to help design the two user interfaces. Our database will be built using MySQL and will establish a connection to the Oregon State University servers to match accounts with files. Security will be implemented at all levels to ensure a safe environment for our users. With the provided tools development can begin and we will star to meet the set goals for the project.
+
+
+\section{Code Samples}
+Below is a code sample for database optimization in a listed format. Syntax may not be exact due to special character reservations in LaTex. 
+\begin{enumerate}
+   \item \textbf{\textit {Database Access: ODBC API}}
+   \begin{itemize}
+          \item #include \textless sql.h \textgreater 
+          \item #include \textless sqlext.h \textgreater
+          \item #include \textless odbcinst.h \textgreater 
+          \item #pragma comment(lib, "odbc32.lib") 
+          \item #pragma comment(lib, “odbcccp32.lib)
+          \item \textit {odbc32.lib corresponding with sqlh and sqlest.h}
+          \item \textit {odbcccp32.lib corresponding with odbcinst.h}
+       \end{itemize}
+   \item \textbf{\textit {Database connection}}
+   \begin{itemize}
+        \item Database environment handle: SQLHENV m\_hEnviroment; 
+        \item Database connection handle: SQLHDBC m\_hDatabaseConnection; 
+        \item Execute statement handle: SQLHSTMT m\_hStatement;
+        \item using ODBC API  establish the database connection in three step
+           \begin{enumerate}
+              \item Apply the environment handle.
+              \item using environment handle apply connection handle.
+              \item using connection handle connect database.
+         \end{enumerate}
+    \end{itemize}
+   \item \textbf{\textit{Code}}
+     \begin{itemize}
+        \item SQLRETYRN l\_uiReturn = SQLALLocHandle(SQL\_HANDLE\_ENV, NULL, &m\_hEnvironment); \newline
+        //apply any handle will use this function, parameter1 is the type of handle will be applied, parameter2 is the corresponding handle (Null because no corresponding handle), the application result will be saved in parameter 3//
+     \end{itemize}
+     
+    \item \textbf{\textit{MYSQL using}}
+       \begin{itemize}
+         \item application statement handle \newline
+          SQLRETURN l\_uiReturn = SQLALLcoHandle(SQL\_HANDLE\_STMT, m\_hDatabaseConnection, &m\_hStatement); 
+         \item compose the SQL statement \newline
+          CString l\_cstrSql \newline
+          L\_cstrSql.Format(\_T(“SELECT * FROM database ”));
+         \item SQL statement execution \newline
+          L\_uiReturn = SQLExecDirect(m\_hStatement 
+          L\_cstrSql.GetBuffer(), SQL\_NTS); 
+         \item read out the results \newline
+          L\_uiReturn = SQLFetch(m\_hStatement); 
+         \item getting data \newline
+          SQLGetData(m\_hStatement, 1 SQL\_C\_ULONG,&1\_siID,0,&l\_siIDLength); 
+         \item free statement \newline
+          SQLFreeHandle(SQL\_HANDLE\_STMT, m\_hStatement); 
+       \end{itemize}
+\end{enumerate}
+
+
+\end{document}
+  
