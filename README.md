@@ -34,6 +34,19 @@ If you're still having trouble installing Django, you can always refer to Django
 
 By default, the server runs using a SQLite database for easy development on a local machine. For production use, it is recommended to use a MySQL or MariaDB database. Installing MySQL is out of the scope of this guide. After MySQL is installed, create a user and an empty database for use with this project. Now settings.py in the LetterWebsite directory needs to be modified. In the databases section, remove or comment out the code for the SQLite database, and uncomment the code for the MySQL database. Some modifications to the user, password, and host will need to be made for use with the new database.
 
+### URLs
+
+Most of the URLs for our project are not yet accessible via buttons or links, and so the URLs must be manually typed into the browser's URL bar. Below are the URLs which are accessible for our site:
+
+* **/** (the homepage, also where students can upload their documents and view their requests)
+* **/login** (the login page)
+* **/register** (user registration page)
+* **/logout** (user logout page)
+* **/student_profiles/<user_id>** (student's profile page. A student account can view only their own student profile. Professor accounts can view any student account. If the given id corresponds to a professor's account, the user is redirected to the professor_profiles page instead)
+* **/professor_profiles/<user_id>** (professor's profile page. Any student csan view any professor's page. If the user id entered is not a professor account, a 404 error is raised)
+* **/preferences** (only accessible by professor accounts. A professor can set their own preferences here. Students who try to access this page are prompted to login as a professor account)
+
+
 ## Notes
 
 There are some premade accounts to login and test the website's functionality with. Their information is:
