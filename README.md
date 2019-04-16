@@ -58,7 +58,7 @@ There are some premade accounts to login and test the website's functionality wi
 * **teacher//testpass123** 
 * **student//somepassword**
 
-Make sure to be signed out of the current account before signing in to any other account because that will cause unexpected errors that won't be present with a CAS implementation.
+Make sure to be signed out of the current account before signing in to any other account because that will cause unexpected errors that won't be present with a CAS implementation. These premade accounts are already assigned to a professor group and student group respectively which is important because that is how the website determines if you're a student or professor. New accounts are not assigned to a group and must be manually done.
 
 
 ## Built With
