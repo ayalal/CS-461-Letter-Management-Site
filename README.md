@@ -38,13 +38,16 @@ By default, the server runs using a SQLite database for easy development on a lo
 
 Most of the URLs for our project are not yet accessible via buttons or links, and so the URLs must be manually typed into the browser's URL bar. Below are the URLs which are accessible for our site:
 
-* **/** (the homepage, also where students can upload their documents and view their requests)
+* **/** (the homepage, also where students can upload their documents and view their requests.)
 * **/login** (the login page)
 * **/register** (user registration page)
 * **/logout** (user logout page)
 * **/student_profiles/<user_id>** (student's profile page. A student account can view only their own student profile. Professor accounts can view any student account. If the given id corresponds to a professor's account, the user is redirected to the professor_profiles page instead)
 * **/professor_profiles/<user_id>** (professor's profile page. Any student csan view any professor's page. If the user id entered is not a professor account, a 404 error is raised)
 * **/preferences** (only accessible by professor accounts. A professor can set their own preferences here. Students who try to access this page are prompted to login as a professor account)
+* **/schedule** (This page is hardcoded and not working properly at the moment. Students should be able to view their active requests here. Instead, student's can view their active requests in the index page)
+
+From any URL, the student can initiate a request to a professor by typing their username in the search box and clicking the request button. They **MUST** request to a valid professor username or the webpage will return an error
 
 
 ## Notes
