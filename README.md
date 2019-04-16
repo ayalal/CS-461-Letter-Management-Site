@@ -35,6 +35,17 @@ If you're still having trouble installing Django, you can always refer to Django
 
 By default, the server runs using a SQLite database for easy development on a local machine. For production use, it is recommended to use a MySQL or MariaDB database. Installing MySQL is out of the scope of this guide. After MySQL is installed, create a user and an empty database for use with this project. Now settings.py in the LetterWebsite directory needs to be modified. In the databases section, remove or comment out the code for the SQLite database, and uncomment the code for the MySQL database. Some modifications to the user, password, and host will need to be made for use with the new database.
 
+
+## Notes
+
+There are some premade accounts to login and test the website's functionality with. Their information is:
+
+* **teacher//testpass123** (user id = 5)
+* **student//somepassword** (user id = 2)
+
+Make sure to be signed out of the current account before signing in to any other account because that will cause unexpected errors that won't be present with a CAS implementation. These premade accounts are already assigned to a professor group and student group respectively which is important because that is how the website determines if you're a student or professor. New accounts are not assigned to a group and must be manually done.
+
+
 ### URLs
 
 Most of the URLs for our project are not yet accessible via buttons or links, and so the URLs must be manually typed into the browser's URL bar. Below are the URLs which are accessible for our site:
@@ -50,17 +61,6 @@ Most of the URLs for our project are not yet accessible via buttons or links, an
 * **/letter/?id=<letter_id>** (View information about a letter. This is accessible from the schedule page. If the user inputs a letter id for a letter that doesn't belong to them, the server give an anauthorized access error)
 
 From any URL, the student can initiate a request to a professor by typing their username in the search box and clicking the request button. They **MUST** request to a valid professor username or the webpage will return an error
-
-
-## Notes
-
-There are some premade accounts to login and test the website's functionality with. Their information is:
-
-* **teacher//testpass123** (user id = 5)
-* **student//somepassword** (user id = 2)
-
-Make sure to be signed out of the current account before signing in to any other account because that will cause unexpected errors that won't be present with a CAS implementation. These premade accounts are already assigned to a professor group and student group respectively which is important because that is how the website determines if you're a student or professor. New accounts are not assigned to a group and must be manually done.
-
 
 ## Built With
 
