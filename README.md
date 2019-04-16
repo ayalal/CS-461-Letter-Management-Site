@@ -17,7 +17,8 @@ A step by step series of examples that tell you how to get a development environ
 First install Python 3.7 at this website https://www.python.org/downloads/ pip3 should also be installed with the download if 
 not install pip3
 
-Then where our project is go to the directory containing the install.sh file and run the code below.
+Then where our project is go to the directory containing the install.sh file and run the code below. (this is for Linux/MacOS machines)
+Running this application within Linux context would be the best suited environment. 
 
 ```
 ./install.sh
