@@ -34,6 +34,16 @@ If you're still having trouble installing Django, you can always refer to Django
 
 By default, the server runs using a SQLite database for easy development on a local machine. For production use, it is recommended to use a MySQL or MariaDB database. Installing MySQL is out of the scope of this guide. After MySQL is installed, create a user and an empty database for use with this project. Now settings.py in the LetterWebsite directory needs to be modified. In the databases section, remove or comment out the code for the SQLite database, and uncomment the code for the MySQL database. Some modifications to the user, password, and host will need to be made for use with the new database.
 
+## Notes
+
+There are some premade accounts to login and test the website's functionality with. Their information is:
+
+* **teacher//testpass123** 
+* **student//somepassword**
+
+Make sure to be signed out of the current account before signing in to any other account because that will cause unexpected errors that won't be present with a CAS implementation.
+
+
 ## Built With
 
 * [Django](https://www.djangoproject.com/) - The web framework used
