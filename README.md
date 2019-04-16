@@ -46,7 +46,7 @@ Most of the URLs for our project are not yet accessible via buttons or links, an
 * **/student_profiles/<user_id>** (student's profile page. A student account can view only their own student profile. Professor accounts can view any student account. If the given id corresponds to a professor's account, the user is redirected to the professor_profiles page instead)
 * **/professor_profiles/<user_id>** (professor's profile page. Only Professors can view professor profiles)
 * **/preferences** (only accessible by professor accounts. A professor can set their own preferences here. Students who try to access this page are prompted to login as a professor account)
-* **/schedule** (This page is hardcoded and not working properly at the moment. Students should be able to view their active requests here. Instead, student's can view their active requests in the index page)
+* **/schedule** (This page is hardcoded and not working properly at the moment. Students should be able to view their active requests here. Instead, students can view their active requests in the index page)
 * **/letter/?id=<letter_id>** (View information about a letter. This is accessible from the schedule page. If the user inputs a letter id for a letter that doesn't belong to them, the server give an anauthorized access error)
 
 From any URL, the student can initiate a request to a professor by typing their username in the search box and clicking the request button. They **MUST** request to a valid professor username or the webpage will return an error
@@ -59,7 +59,7 @@ There are some premade accounts to login and test the website's functionality wi
 * **teacher//testpass123** (user id = 5)
 * **student//somepassword** (user id = 2)
 
-Make sure to be signed out of the current account before signing in to any other account because that will cause unexpected errors that won't be present with a CAS implementation.
+Make sure to be signed out of the current account before signing in to any other account because that will cause unexpected errors that won't be present with a CAS implementation. These premade accounts are already assigned to a professor group and student group respectively which is important because that is how the website determines if you're a student or professor. New accounts are not assigned to a group and must be manually done.
 
 
 ## Built With
