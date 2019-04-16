@@ -1,0 +1,15 @@
+{% extends 'Letter/base.html' %}
+{% load static %}
+	{% block content %}
+	<b><div>Ask for Letter of Recommendation from</div></b>
+		<div>Professor - {{ requested_professor.username }}</div>
+		<ul>
+			<li>Preferred Documents - {{ requested_professor_preferences.preferred_documents }}</li>
+			<li>Preferred Projects - {{ requested_professor_preferences.preferred_projects }}</li>
+		</ul>
+                <form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+		<button id="submitRequestButton" type="submit" class="btn btn-outline-warning" name="submit">Submit Request</button>
+		</form>
+  {% endblock %}

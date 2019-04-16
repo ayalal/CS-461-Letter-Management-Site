@@ -25,8 +25,7 @@ SECRET_KEY = 'bjii+xe5p-b-_w)!t)2v(&g42c0c47y(bvm359u7kim+q$z2vh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['127.0.0.1','0.0.0.0:80','18.223.30.206']
 
 # Application definition
 
@@ -40,6 +39,7 @@ INSTALLED_APPS = [
     'Letter',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -48,7 +48,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
+
 
 ROOT_URLCONF = 'LetterWebsite.urls'
 
@@ -76,8 +78,14 @@ WSGI_APPLICATION = 'LetterWebsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+      #'ENGINE': 'django.db.backends.sqlite3',
+      #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+      'ENGINE': 'django.db.backends.mysql',
+      'NAME': 'letter_of_rec',
+      'USER': 'lor',
+      'PASSWORD': 'Letterofrec123',
+      'HOST': '127.0.0.1',
+      'PORT': '3306',
     }
 }
 
@@ -123,3 +131,7 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+LOGIN_URL = '/login/'
+
+LOGIN_REDIRECT_URL = '/'

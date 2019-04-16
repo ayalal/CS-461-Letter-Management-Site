@@ -15,7 +15,7 @@ input {
 }
 input[type=text] {
   background-color: #f1f1f1;
-  width: 100%;
+  //width: 100%;
 }
 input[type=submit] {
   background-color: DodgerBlue;
@@ -46,4 +46,18 @@ input[type=submit] {
   /*when navigating through the items using the arrow keys:*/
   background-color: DodgerBlue !important; 
   color: #ffffff; 
+}
+.schedule{
+  padding: 10px;
+}
+tr.schedule {
+  cursor: pointer;
+}
+tr.schedule:nth-of-type(even) {
+  background-color: #f1f1f1;
+}
+
+#navlist {
+  position: relative;
+  display: inline-block;
 }

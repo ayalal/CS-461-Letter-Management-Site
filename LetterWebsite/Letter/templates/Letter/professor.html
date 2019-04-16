@@ -1,0 +1,21 @@
+{% extends 'Letter/base.html' %}
+{% load static %}
+{% block content %}
+ <div class="container-fluid">
+            <div class="row">
+              <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                  <ul class="nav flex-column">
+                    <li>
+                      <div class="profile-usertitle-name">{{user.username}} - Professor</div>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{% url 'preferences' %}"><button id="button" class="btn btn-primary">Set Prefs</button></a>
+                    </li>
+                  </ul>
+                  {% csrf_token %} {{ data }} 
+                </div>
+              </nav>
+            </div>
+          </div>
+{% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'letter/base.html' %}
+{% extends 'Letter/base.html' %}
 {% load static %}
 	{% block content %}
 	    <div class="container-fluid">
@@ -7,7 +7,7 @@
 	        <div class="sidebar-sticky">
 	          <ul class="nav flex-column">
 	            <li>
-	              <div class="profile-usertitle-name">John Doe - Student</div>
+	              <div class="profile-usertitle-name">{{user.username}} - Student</div>
 	            </li>
 	            <li class="nav-item">
 	              <button id="button" class="btn btn-primary" data-toggle="modal" data-target="#fileModal">Upload File</button>
@@ -50,5 +50,38 @@
   </div>
 </form>
 </div>
+
+<table class ="table mb-0">
+	<thead>
+		<tr>
+			<th>My Documents</bh>
+		</tr>
+	</thead>
+	<tbody>
+		{% for document in documents %}
+		<tr>
+			<td>
+				<a href="{{ document.document.url }}">{{document.filename}}</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<table class ="table mb-0">
+	<thead>
+		<tr>
+			<th>My Open Requests</bh>
+		</tr>
+	</thead>
+	<tbody>
+		{% for request in requests %}
+		<tr>
+			<td>Letter from {{request.requestee.username}}, requested on {{request.date_initiated}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
 
   {% endblock %}

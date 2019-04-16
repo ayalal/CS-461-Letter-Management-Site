@@ -1,0 +1,20 @@
+{% extends 'Letter/base.html' %}
+{% load static %}
+{% block content %}
+<div class="profile-usertitle-name">{{professor.username}} - Professor</div>
+
+<table class ="table mb-0">
+	<thead>
+		<tr>
+			<th>{{professor.username}}'s Preferences</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Preferred Documents: {{prefs.preferred_documents}}</td>
+                        <td>Preferred Projects: {{prefs.preferred_projects}}</td>
+		</tr>
+	</tbody>
+</table>
+
+{% endblock %}

@@ -9,30 +9,70 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static 'Letter/style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'Letter/css/style.css' %}" type="text/css">
+  <link rel="stylesheet" type="text/css" href="">
+  <script src="{% static 'Letter/js/main.js' %}"></script>
   <title>Letter of Recommendation</title>
 </head>
 <body>
 
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a href="#" class="navbar-brand col-sm-3 col-md-2 mr-0">Oregon State University</a>
-    <input class="form-control navbar-left w-25" type="text" name="" placeholder="Search Professor">
+    <a href="{% url 'index' %}" class="navbar-brand col-sm-3 col-md-2 mr-0">Oregon State University</a>
+    <form autocomplete="off" action="/request/" method="post" enctype="multipart/form-data">
+    	{% csrf_token %}
+	 <div class="autocomplete">    
+    	<input id="myInput" class="" type="text" name="myProfessor" placeholder="Search Professor">
+    </div>
+     <button id="requestButton" type="submit" class="btn btn-outline-primary">Request</button>
+    </form>
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">School Department</button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         <a href="#" class="dropdown-item">EECS</a>
       </div>
     </div>
-    <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap">
-        <a class="nav-link" href="#">Sign Out</a>
-      </li>
+    <ul id= "navlinks" class="navbar-nav px-3">
+        {% if user.is_authenticated %}
+          <li class="nav-item text-nowrap"><a class="nav-link" href="{% url 'index' %}">{{request.user}}</a></li>
+          <li class="nav-item text-nowrap"><a class="nav-link" href="{% url 'logout_view' %}">Sign Out</a></li>
+        {% else %}
+          <li class="nav-item text-nowrap"><a class="nav-link" href="{% url 'login' %}">Sign In</a></li>
+          <li class="nav-item text-nowrap"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+        {% endif %}
     </ul>
   </nav>
 
   {% block content %}
   {% endblock %}
-  
+
+<!--
+  <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<form method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ask for Letter of Recommendation?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<div id="professorListing" value=""></div>
+ 		<ul>
+ 
+ 			<li></li>
+ 		</ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Request</button>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+-->
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -45,8 +85,13 @@
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
-    
+
   </script>
+  <script type="text/JavaScript">
+  		var professors = [];
+  		professors = {{ json_group_users|safe }};
+  		autocomplete(document.getElementById("myInput"), professors);
+</script>
 
 </body>
 </html>

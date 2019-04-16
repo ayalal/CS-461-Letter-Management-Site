@@ -1,0 +1,25 @@
+{% extends 'Letter/base.html' %}
+{% load static %}
+	{% block content %}
+	<div style="margin:20px;">
+		<h2>Schedule</h2>
+		<table style="width:100%">
+			<tr>
+				<th class="schedule">Due Date</th>
+				<th>Student</th>
+                <th>Professor</th>
+				<th></th>
+			</tr>
+            {% for letter in letters %}
+            {% if letter.active == True %}
+            <tr class="schedule" onclick="window.location=&quot;{% url 'letter' %}?id={{ letter.id }}&quot;;">
+                <td class="schedule">{{ letter.date }}</td>
+                <td>{{ letter.student.first_name }} {{ letter.student.last_name }}</td>
+                <td>{{ letter.professor.first_name }} {{ letter.professor.last_name }}</td>
+                <td><a href="{% url 'letter' %}?id={{ letter.id }}">More info</a></td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+		</table>
+	</div>
+    {% endblock %}
