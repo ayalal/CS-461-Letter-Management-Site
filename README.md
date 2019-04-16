@@ -14,17 +14,17 @@ Python 3 is required to run the server
 
 A step by step series of examples that tell you how to get a development environment running
 
-Install Django
+First install Python 3.7 at this website https://www.python.org/downloads/ pip3 should also be installed with the download if 
+not install pip3
+
+Then where our project is go to the directory containing the install.sh file and run the code below.
 
 ```
-pip install django
+./install.sh
 ```
 
-From the LetterWebsite directory, run the server
+The application should launch and can be used with the credentials below.
 
-```
-python3 manage.py runserver
-```
 
 Now in a web browser, go to http://127.0.0.1:8000.
 
