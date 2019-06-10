@@ -1,0 +1,28 @@
+\section{Appendix 1}
+\subsection{File Upload}
+\noindent For handling file uploads we were able to use built in functionality that Django presented to us as a solution for handling file transfer to a web application. Django's function connects to the users operating system which then allows the user to choose which file they desire to upload. Below is the code block used to filter then allow the user to fill out the necessary form to upload a file which was made simple thanks to Django's built in functionality.\\ 
+    \begin{lstlisting}
+        current_user = request.user
+    group = Group.objects.filter(user = request.user)
+    if group.filter(name='Professors').exists():
+        redir = "/professor_profiles/" + str(request.user.id)
+        return redirect(redir)
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.user = request.user
+            obj.save()
+            return redirect('index')
+    \end{lstlisting} \\
+    
+\subsection{CAS Implementation}
+\noindent Integrating Oregon State University accounts into our application was very simple thanks to the opens source community that developed a CAS python package for online applications. Simple as it was we had some issues with integration as some of the development packages we were using prevented the CAS package from accessing the URL to the schools CAS developer server. After using some sources from stack overflow we realized there were some unneeded packages in our instance that we had to lean out as well as update other package versions. After cleaning up our dependencies we were then able to run CAS on our application by simplying using the few lines below in our settings.py file. 
+        \begin{lstlisting}
+        CAS_SERVER_URL = 'https://login.oregonstate.edu/cas-dev/'
+
+        #CAS_PROXY_CALLBACK = 'http://18.223.30.206/accounts/callback'
+
+        CAS_APPLY_ATTRIBUTES_TO_USER = True
+        \end{lstlisting}
+    
