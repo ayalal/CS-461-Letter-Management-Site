@@ -7,15 +7,20 @@ body {
   position: relative;
   display: inline-block;
 }
+
+#declineRequestBtn {
+  background-color: red;
+}
+
 input {
   border: 1px solid transparent;
   background-color: #f1f1f1;
   padding: 10px;
   font-size: 16px;
 }
+
 input[type=text] {
   background-color: #f1f1f1;
-  //width: 100%;
 }
 input[type=submit] {
   background-color: DodgerBlue;
@@ -47,17 +52,20 @@ input[type=submit] {
   background-color: DodgerBlue !important; 
   color: #ffffff; 
 }
-.schedule{
-  padding: 10px;
+.schedule {
+    padding: 10px;
 }
 tr.schedule {
-  cursor: pointer;
+    cursor: pointer;
 }
 tr.schedule:nth-of-type(even) {
-  background-color: #f1f1f1;
+    background-color: #f1f1f1;
 }
 
-#navlist {
-  position: relative;
-  display: inline-block;
+#listedDoc{
+  width: 30px;
+  padding-right: 15px;
+}
+div.preferences {
+    margin-bottom: 40px;
 }

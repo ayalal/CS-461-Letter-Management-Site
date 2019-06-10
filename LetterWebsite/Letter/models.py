@@ -30,10 +30,9 @@ class Document(models.Model):
 #model used for letters of Recommendation
 class LetterDoc(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='userletters')
-    sharedWith = models.ManyToManyField(User)
-    description = models.CharField(max_length=255, blank=True)
+    student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='student_letter')
     document = models.FileField(upload_to=user_letter_path)
-    uploaded_at = models.DateTimeField(auto_now_add=True)
+    uploaded_at = models.DateField(_("Date"), default=datetime.date.today, blank=True, null=True)
 
     def filename(self):
         return os.path.basename(self.document.name)
@@ -42,6 +41,9 @@ class Request(models.Model):
     requester = models.ForeignKey(User, on_delete=models.CASCADE, related_name='requester')
     requestee = models.ForeignKey(User, on_delete=models.CASCADE, related_name='requestee')
     date_initiated = models.DateField(_("Date"), default=datetime.date.today, blank=True, null=True)
+    status = models.IntegerField(default=-1)
+    def __str__(self):
+        return self.requester.username
 
 # These two auto-delete files from filesystem when they are unneeded:
 
@@ -82,3 +84,5 @@ class Letter(models.Model):
     date = models.DateField()
     description = models.TextField()
     active = models.BooleanField(default=True)
+    def __str__(self):
+        return self.student.username

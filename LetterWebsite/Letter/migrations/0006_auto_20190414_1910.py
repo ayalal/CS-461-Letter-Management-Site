@@ -20,15 +20,4 @@ class Migration(migrations.Migration):
             field=models.ForeignKey(default=-1, on_delete=django.db.models.deletion.PROTECT, to=settings.AUTH_USER_MODEL),
             preserve_default=False,
         ),
-        migrations.CreateModel(
-            name='LetterDoc',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('sharedWith', models.IntegerField()),
-                ('description', models.CharField(blank=True, max_length=255)),
-                ('document', models.FileField(upload_to=Letter.models.user_letter_path)),
-                ('uploaded_at', models.DateTimeField(auto_now_add=True)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='userletters', to=settings.AUTH_USER_MODEL)),
-            ],
-        ),
     ]

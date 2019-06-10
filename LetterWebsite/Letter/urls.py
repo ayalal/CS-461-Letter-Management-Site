@@ -4,6 +4,7 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.contrib import admin
 from Letter import views as user_views
+import django_cas_ng.views
 
 from . import views
 
@@ -19,10 +20,13 @@ urlpatterns = [
     path('signin/', views.register, name='register'),
 #    path('preference/', views.get_preference, name='preference'),
     path('preferences/', views.set_preferences, name='preferences'),
-    path('logout/', views.logout_view, name='logout_view'),
+ #   path('logout/', views.logout_view, name='logout_view'),
     path('request/', views.request, name='request'),
-    path('login/', auth_views.LoginView.as_view(template_name='Letter/login.html'), name='login'),
-
+#    path('login/', auth_views.LoginView.as_view(template_name='Letter/login.html'), name='login'),
+    path('login/', django_cas_ng.views.LoginView.as_view(), name='cas_ng_login'),
+    path('logout/', django_cas_ng.views.LogoutView.as_view(), name='cas_ng_logout'),
+    path('oldlogin/', auth_views.LoginView.as_view(template_name='Letter/login.html'), name='login'),
+    path(r'^(?P<document_id>[0-9]+)/delete_file/$', views.delete_file, name='delete_file'),
 ]
 
 if settings.DEBUG:

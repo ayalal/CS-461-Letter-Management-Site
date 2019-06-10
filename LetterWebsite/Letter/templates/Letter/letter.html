@@ -20,7 +20,11 @@
 		<h5 style="margin-top: 40px">Description:</h5>
         {{ object.description }}
 		<p style="margin-top: 40px; margin-bottom: 40px">
-		<a href="http://127.0.0.1:8000/upload/">Upload Final Letter and Notify Student</a>
+        {{ isp }}
+        {% if is_professor == True %}
+        True
+        <button id="button" class="btn btn-primary" data-toggle="modal" data-target="#fileModal">Upload Letter</button>
+        {% endif %}
 		</p>
         <table class="table mb-0">
             <thead>
@@ -43,4 +47,27 @@
         <p>Not authorized to view this page.
         {% endif %}
 	</div>
+
+    <div class="modal fade" id="fileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Choose A File</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input class="btn" type="file" name="document"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
   {% endblock %}

@@ -14,15 +14,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='letterdoc',
-            name='sharedWith',
-        ),
-        migrations.AddField(
-            model_name='letterdoc',
-            name='sharedWith',
-            field=models.ManyToManyField(to=settings.AUTH_USER_MODEL),
-        ),
         migrations.CreateModel(
             name='Request',
             fields=[

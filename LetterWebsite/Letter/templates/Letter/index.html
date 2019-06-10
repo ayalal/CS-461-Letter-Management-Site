@@ -1,30 +1,19 @@
 {% extends 'Letter/base.html' %}
 {% load static %}
 	{% block content %}
-	    <div class="container-fluid">
-	    <div class="row">
-	      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-	        <div class="sidebar-sticky">
-	          <ul class="nav flex-column">
-	            <li>
-	              <div class="profile-usertitle-name">{{user.username}} - Student</div>
-	            </li>
-	            <li class="nav-item">
-	              <button id="button" class="btn btn-primary" data-toggle="modal" data-target="#fileModal">Upload File</button>
-	            </li>
-	            <li>
-	                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Requests</a>
-	                <ul class="collapse list-unstyled" id="pageSubmenu">
-	                    <li>
-	                        pending request
-	                    </li>
-	                </ul>
-            	</li>
-	          </ul>
-	        </div>
-	      </nav>
-	    </div>
-	  </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">{{user.username}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li>
+      	<button id="button" class="btn btn-primary" data-toggle="modal" data-target="#fileModal">Upload File</button>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 
 <!--modal html-->
@@ -51,37 +40,79 @@
 </form>
 </div>
 
-<table class ="table mb-0">
-	<thead>
+<table class ="table table-striped">
+	<thead class="thead-dark">
 		<tr>
 			<th>My Documents</bh>
 		</tr>
 	</thead>
 	<tbody>
+        {% if documents.count == 0 %}
+		<tr>
+			<td>
+                No Documents
+			</td>
+		</tr>
+        {% else %}
 		{% for document in documents %}
 		<tr>
 			<td>
-				<a href="{{ document.document.url }}">{{document.filename}}</a>
+				<a href="{{ document.document.url }}" style="padding-right: 40px;">{{document.filename}}</a>
+        <form action="{% url 'delete_file' document.id %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="document_id" value="{{ document.id }}" />
+                                <button type="submit" class="btn btn-outline-danger">Delete File
+                                </button>
+                            </form>
 			</td>
 		</tr>
 		{% endfor %}
+        {% endif %}
 	</tbody>
 </table>
 
-<table class ="table mb-0">
-	<thead>
+<table class ="table table-striped">
+	<thead class="thead-dark">
 		<tr>
-			<th>My Open Requests</bh>
+			<th scope="col">My Open Requests</bh>
 		</tr>
 	</thead>
 	<tbody>
+        {% if requests.count == 0 %}
+		<tr>
+            <td>No Requests</td>
+		</tr>
+        {% else %}
 		{% for request in requests %}
 		<tr>
 			<td>Letter from {{request.requestee.username}}, requested on {{request.date_initiated}}</td>
 		</tr>
 		{% endfor %}
+        {% endif %}
+	</tbody>
+</table>
+
+<table class ="table table-striped">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">My Letters</bh>
+		</tr>
+	</thead>
+	<tbody>
+        {% if letters.count == 0 %}
+		<tr>
+            <td>No Letters</td>
+		</tr>
+        {% else %}
+		{% for letter in letters %}
+		<tr>
+			<td>Letter from {{letter.user.username}}, uploaded on {{letter.uploaded_at}}
+			<a href="{{ letter.document.url }}" style="padding-right: 40px;">{{letter.filename}}</a></td>
+		{% endfor %}
+        {% endif %}
 	</tbody>
 </table>
 
 
   {% endblock %}
+

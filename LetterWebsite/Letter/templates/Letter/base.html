@@ -18,6 +18,7 @@
 
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
     <a href="{% url 'index' %}" class="navbar-brand col-sm-3 col-md-2 mr-0">Oregon State University</a>
+    {% ifequal request.user.groups.all.0.name "Students" %}
     <form autocomplete="off" action="/request/" method="post" enctype="multipart/form-data">
     	{% csrf_token %}
 	 <div class="autocomplete">    
@@ -31,12 +32,17 @@
         <a href="#" class="dropdown-item">EECS</a>
       </div>
     </div>
+    {% endifequal %}
+    <a href="{% url 'schedule' %}" style="color: white;">Schedule</a>
+    {% ifequal request.user.groups.all.0.name "Professors" %}
+    <a href="{% url 'preferences' %}" style="color: white;">Preferences</a>
+    {% endifequal %}
     <ul id= "navlinks" class="navbar-nav px-3">
         {% if user.is_authenticated %}
           <li class="nav-item text-nowrap"><a class="nav-link" href="{% url 'index' %}">{{request.user}}</a></li>
-          <li class="nav-item text-nowrap"><a class="nav-link" href="{% url 'logout_view' %}">Sign Out</a></li>
+          <li class="nav-item text-nowrap"><a class="nav-link" href="{% url 'cas_ng_logout' %}">Sign Out</a></li>
         {% else %}
-          <li class="nav-item text-nowrap"><a class="nav-link" href="{% url 'login' %}">Sign In</a></li>
+          <li class="nav-item text-nowrap"><a class="nav-link" href="{% url 'cas_ng_login' %}">Sign In</a></li>
           <li class="nav-item text-nowrap"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
         {% endif %}
     </ul>

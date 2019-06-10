@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cas_ng',
     'Letter',
 ]
 
@@ -48,9 +49,21 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+    'django_cas_ng.middleware.CASMiddleware',
 ]
 
+AUTHENTICATION_BACKENDS= (
+
+    'django.contrib.auth.backends.ModelBackend',
+    'django_cas_ng.backends.CASBackend',
+
+)
+
+CAS_SERVER_URL = 'https://login.oregonstate.edu/cas-dev/'
+
+#CAS_PROXY_CALLBACK = 'http://18.223.30.206/accounts/callback'
+
+CAS_APPLY_ATTRIBUTES_TO_USER = True
 
 ROOT_URLCONF = 'LetterWebsite.urls'
 
@@ -122,6 +135,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+SESSION_COOKIE_AGE = 259200
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
@@ -135,3 +150,6 @@ MEDIA_URL = '/media/'
 LOGIN_URL = '/login/'
 
 LOGIN_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'localhost'

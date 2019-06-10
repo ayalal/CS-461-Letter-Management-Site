@@ -3,8 +3,8 @@
 {% block content %}
 <div class="profile-usertitle-name">{{professor.username}} - Professor</div>
 
-<table class ="table mb-0">
-	<thead>
+<table class ="table table-striped">
+	<thead class="thead-dark">
 		<tr>
 			<th>{{professor.username}}'s Preferences</th>
 		</tr>
@@ -12,9 +12,77 @@
 	<tbody>
 		<tr>
 			<td>Preferred Documents: {{prefs.preferred_documents}}</td>
-                        <td>Preferred Projects: {{prefs.preferred_projects}}</td>
+ 		</tr>
+		<tr>
+                       <td>Preferred Projects: {{prefs.preferred_projects}}</td>
 		</tr>
 	</tbody>
 </table>
+
+<table class ="table table-striped">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">My Open Requests</bh>
+		</tr>
+	</thead>
+	<tbody>
+	{% if openrequests.count == 0 %}
+		<tr>
+            <td>No Open Requests</td>
+		</tr>
+        {% else %}
+		{% for openrequest in openrequests %}
+		<tr>
+			<td>Accepted Request for Letter from {{openrequest.requester.username}}, requested on {{openrequest.date_initiated}}
+				<form method="POST">{% csrf_token %}
+					<input type="hidden"
+					       name="{{ denyform.requester_id.name }}"
+					       value="{{ openrequest.requester.id }}">
+					<input type="Submit" id="declineRequestBtn" value="Decline">
+				</form>
+				<form method="POST" enctype="multipart/form-data">{% csrf_token %}
+					{{ letterform.as_p }}
+					<input type="hidden"
+					       name="student_identifier"
+					       value="{{ openrequest.requester.id }}">
+					<input type="Submit" id="upload" value="Upload">
+				</form>
+			</td>
+		</tr>
+		{% endfor %}
+	{% endif %}
+	</tbody>
+</table>
+
+
+<table class ="table table-striped">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">My Pending Requests</bh>
+		</tr>
+	</thead>
+	<tbody>
+	{% if requests.count == 0 %}
+		<tr>
+            <td>No Requests Pending</td>
+		</tr>
+        {% else %}
+		{% for request in requests %}
+		<tr>
+			<td>Request for Letter from {{request.requester.username}}, requested on {{request.date_initiated}}
+				<form method="POST">{% csrf_token %}
+					{{ form.yes_or_no }}
+					<input type="hidden"
+					       name="requester_id"
+					       value="{{ request.requester.id }}">
+					<input type="Submit" value="Submit">
+				</form>
+			</td>
+		</tr>
+		{% endfor %}
+	{% endif %}
+	</tbody>
+</table>
+
 
 {% endblock %}
