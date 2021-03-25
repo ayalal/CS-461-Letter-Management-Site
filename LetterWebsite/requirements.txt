@@ -44,7 +44,7 @@ python-daemon==1.6
 python-dateutil==2.6.0
 pytz==2018.9
 pyxattr==0.5.1
-PyYAML==3.10
+PyYAML==5.4
 repoze.lru==0.4
 requests==2.6.0
 rsa==3.4.1
