@@ -32,7 +32,7 @@ lockfile==0.9.1
 MarkupSafe==0.11
 mysqlclient==1.4.2.post1
 oauthlib==2.0.1
-Pillow==2.0.0
+Pillow==8.2.0
 ply==3.4
 pyasn1==0.1.9
 pycparser==2.14
